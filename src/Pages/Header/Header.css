@@ -1,0 +1,29 @@
+.nav-text {
+  color: white !important;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.nav-text:active {
+  background-color: #e7ab3c;
+}
+#basic-nav-dropdown {
+  color: white !important;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.nav-text:hover {
+  background-color: #e7ab3c;
+}
+.toggle {
+  background-color: #e7ab3c;
+  border: none;
+}
+.dropdown-list {
+  color: black !important;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.dropdown-list:hover {
+  background-color: #e7ab3c;
+  color: white !important;
+}
