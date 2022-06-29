@@ -1,0 +1,40 @@
+.footer {
+  background-color: #0c0b09;
+  color: white;
+}
+.icon {
+  color: #e7ab3c;
+}
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+.newsletter-input {
+  background-color: #e7ab3c;
+}
+.footer-end {
+  background-color: black;
+  color: rgb(132, 123, 123);
+}
