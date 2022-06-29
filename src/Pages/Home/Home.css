@@ -2,6 +2,10 @@
 h3 {
     color: #e7ab3c;
 } */
-.image {
-  height: 90vh !important;
+.banner-btn {
+  background-color: #e7ab3c;
+  color: white;
+  border: none;
+  font-size: larger;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
