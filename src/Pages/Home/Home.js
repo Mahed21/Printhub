@@ -7,6 +7,10 @@ import banner2 from "../../image/banner2.png";
 import card from "../../image/card1.jpg";
 import card1 from "../../image/card2.jpg";
 import card2 from "../../image/card3.jpg";
+import printing from "../../image/printing1.png";
+import printing1 from "../../image/printing-2.png";
+import printing2 from "../../image/printing-3.png";
+import printing3 from "../../image/printing-4.png";
 
 const Home = () => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 650);
@@ -51,7 +55,7 @@ const Home = () => {
           <div class="carousel-item active">
             <img src={banner} class="d-block w-100" alt="..." />
             <div class="carousel-caption d-none d-md-block">
-              <button className="banner-btn ps-3 pe-2 pt-2 pb-2">
+              <button className="banner-btn ps-1 pe-1 pt-2 pb-2">
                 More Details
               </button>
             </div>
@@ -59,7 +63,7 @@ const Home = () => {
           <div class="carousel-item">
             <img src={banner1} class="d-block w-100" alt="..." />
             <div class="carousel-caption d-none d-md-block">
-              <button className="banner-btn ps-3 pe-2 pt-2 pb-2">
+              <button className="banner-btn ps-1 pe-1 pt-2 pb-2">
                 More Details
               </button>
             </div>
@@ -67,7 +71,7 @@ const Home = () => {
           <div class="carousel-item">
             <img src={banner2} class="d-block w-100" alt="..." />
             <div class="carousel-caption d-none d-md-block">
-              <button className="banner-btn ps-3 pe-2 pt-2 pb-2">
+              <button className="banner-btn ps-1 pe-1 pt-2 pb-2">
                 More Details
               </button>
             </div>
@@ -113,6 +117,31 @@ const Home = () => {
             <button className="pb-2 pt-2 ps-3 pe-3 mt-4 banner-btn">
               View Printing Shop
             </button>
+          </div>
+        </div>
+
+        {/* some product of first card */}
+        <h3 className="text-center mb-3">Some Customize Design</h3>
+        <div className="row row-cols-lg-4 row-cols-md-2 mb-3">
+          <div>
+            <div className="print-product h-100 p-4">
+              <img src={printing} alt="" className="img-fluid" />
+            </div>
+          </div>
+          <div>
+            <div className="print-product h-100 p-4">
+              <img src={printing1} alt="" className="img-fluid" />
+            </div>
+          </div>
+          <div>
+            <div className="print-product h-100">
+              <img src={printing2} alt="" className="img-fluid" />
+            </div>
+          </div>
+          <div>
+            <div className="print-product h-100 pt-4">
+              <img src={printing3} alt="" className="img-fluid" />
+            </div>
           </div>
         </div>
         {/* second card */}
