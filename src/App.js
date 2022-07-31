@@ -5,6 +5,8 @@ import Header from "./Pages/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Footer from "./Pages/Footer/Footer";
+import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
       <Footer></Footer>
     </div>

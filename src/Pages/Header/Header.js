@@ -7,26 +7,25 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="header">
-
       <div className="row m-5">
         <div className="col-lg-3 col-md-12 col-sm-12 ">
-         <div className="d-flex justify-content-center">
-         <h2 >PrintUp</h2>
-         </div>
+          <div className="d-flex justify-content-center">
+            <h2>PrintUp</h2>
+          </div>
         </div>
         <div className="col-lg-8">
           <div className="input-top-header">
-          <input type='text' value='what do you need' className="ps-2"/>
-          <button className="btn mb-2 p-2 ms-1">Search</button>
+            <input type="text" value="what do you need" className="ps-2" />
+            <button className="btn mb-2 p-2 ms-1">Search</button>
           </div>
         </div>
         <div className="col-lg-1 col-md-12 col-sm-12">
-         <div className="d-flex justify-content-center">
-         <button className="btn">login</button>
-         </div>
+          <div className="d-flex justify-content-center">
+            <Nav.Link href="/login">
+              <button className="btn">login</button>
+            </Nav.Link>
+          </div>
         </div>
-
-
       </div>
 
       <Navbar bg="black" expand="lg">
