@@ -1,0 +1,7 @@
+.spinner-parent {
+  height: 80vh;
+}
+.spinner {
+  width: 100px;
+  height: 100px;
+}

@@ -2,9 +2,11 @@ import { Button } from "bootstrap";
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import UseAuth from "../Context/UseAuth";
 import "./Header.css";
 
 const Header = () => {
+  const { user, Logout } = UseAuth();
   return (
     <div className="header">
       <div className="row m-5">
@@ -19,13 +21,25 @@ const Header = () => {
             <button className="btn mb-2 p-2 ms-1">Search</button>
           </div>
         </div>
-        <div className="col-lg-1 col-md-12 col-sm-12">
-          <div className="d-flex justify-content-center">
-            <Nav.Link href="/login">
-              <button className="btn">login</button>
-            </Nav.Link>
+        {user.emailVerified ? (
+          <div className="col-lg-1 col-md-12 col-sm-12">
+            <div className="d-flex justify-content-center">
+              <Nav.Link href="/login">
+                <button className="btn" onClick={Logout}>
+                  Logout
+                </button>
+              </Nav.Link>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="col-lg-1 col-md-12 col-sm-12">
+            <div className="d-flex justify-content-center">
+              <Nav.Link href="/login">
+                <button className="btn">login</button>
+              </Nav.Link>
+            </div>
+          </div>
+        )}
       </div>
 
       <Navbar bg="black" expand="lg">
