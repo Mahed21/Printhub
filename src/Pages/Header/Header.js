@@ -1,12 +1,29 @@
 import { Button } from "bootstrap";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import UseAuth from "../Context/UseAuth";
 import "./Header.css";
 
 const Header = () => {
+  const [admin, setAdmin] = useState(false);
+  const [adminData, setAdminData] = useState({});
   const { user, Logout } = UseAuth();
+  // console.log(user);
+  useEffect(() => {
+    fetch("http://localhost:3000/admin")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(user);
+        const datas = data.filter((d) => d.email === user.email);
+        if (datas.length) {
+          setAdmin(true);
+        }
+      });
+  }, []);
+
+  // console.log(adminData);
+  // console.log(adminData.email);
   return (
     <div className="header">
       <div className="row m-5">
@@ -65,9 +82,14 @@ const Header = () => {
               <Nav.Link href="/home" className="nav-text ps-4 pe-4 ms-1">
                 Home
               </Nav.Link>
-              <Nav.Link href="#link" className="nav-text ps-4 pe-4 ms-1">
-                Blog
-              </Nav.Link>
+              {admin ? (
+                <Nav.Link href="#link" className="nav-text ps-4 pe-4 ms-1">
+                  Dashboard
+                </Nav.Link>
+              ) : (
+                ""
+              )}
+
               <Nav.Link href="/home" className="nav-text ps-4 pe-4 ms-1">
                 Contact
               </Nav.Link>

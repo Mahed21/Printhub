@@ -14,6 +14,7 @@ import printing3 from "../../image/printing-4.png";
 
 const Home = () => {
   const [isDesktop, setDesktop] = useState(window.innerWidth > 650);
+
   const updateMedia = () => {
     setDesktop(window.innerWidth > 972);
   };
@@ -22,6 +23,7 @@ const Home = () => {
     window.addEventListener("resize", updateMedia);
     return () => window.removeEventListener("resize", updateMedia);
   });
+
   return (
     <div className="mb-5">
       <div
