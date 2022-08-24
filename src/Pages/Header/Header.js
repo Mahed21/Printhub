@@ -9,7 +9,7 @@ const Header = () => {
   const [admin, setAdmin] = useState(false);
   const [adminData, setAdminData] = useState({});
   const { user, Logout } = UseAuth();
-  // console.log(user);
+
   useEffect(() => {
     fetch("http://localhost:3000/admin")
       .then((res) => res.json())
@@ -25,84 +25,160 @@ const Header = () => {
   // console.log(adminData);
   // console.log(adminData.email);
   return (
-    <div className="header">
-      <div className="row m-5">
-        <div className="col-lg-3 col-md-12 col-sm-12 ">
-          <div className="d-flex justify-content-center">
-            <h2>PrintUp</h2>
-          </div>
+    <div>
+      <div className="container d-flex justify-content-between mb-4 mt-4">
+        <h3>PrintUp</h3>
+        <div>
+          <i class="fab fa-facebook-f me-3 header-logo"></i>
+          <i class="fab fa-twitter me-3 header-logo"></i>
+          <i class="fab fa-instagram me-3 header-logo"></i>
+          <i class="fas fa-envelope-open-text header-logo"></i>
         </div>
-        <div className="col-lg-8">
-          <div className="input-top-header">
-            <input type="text" value="what do you need" className="ps-2" />
-            <button className="btn mb-2 p-2 ms-1">Search</button>
-          </div>
-        </div>
-        {user.emailVerified ? (
-          <div className="col-lg-1 col-md-12 col-sm-12">
-            <div className="d-flex justify-content-center">
-              <Nav.Link href="/login">
-                <button className="btn" onClick={Logout}>
-                  Logout
-                </button>
-              </Nav.Link>
-            </div>
-          </div>
-        ) : (
-          <div className="col-lg-1 col-md-12 col-sm-12">
-            <div className="d-flex justify-content-center">
-              <Nav.Link href="/login">
-                <button className="btn">login</button>
-              </Nav.Link>
-            </div>
-          </div>
-        )}
       </div>
+      <div className="header pt-2 pb-2">
+        <div className="container">
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <div className="container-fluid">
+              <button
+                className="navbar-toggler toggle"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon"></span>
+              </button>
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li className="nav-item">
+                    <Nav.Link
+                      className="nav-link active ankor"
+                      aria-current="page"
+                      href="/"
+                    >
+                      Home
+                    </Nav.Link>
+                  </li>
+                  <NavDropdown title="Shop" id="basic-nav-dropdown">
+                    <NavDropdown.Item
+                      href="#action/3.1"
+                      className="dropdown-list"
+                    >
+                      Customize Shop
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      href="#action/3.2"
+                      className="dropdown-list"
+                    >
+                      Trendin Product
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
+                      href="#action/3.3"
+                      className="dropdown-list"
+                    >
+                      Discount Shop
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                  {admin ? (
+                    <div>
+                      {" "}
+                      <NavDropdown
+                        title="Admin Dashboard"
+                        id="basic-nav-dropdown"
+                      >
+                        <NavDropdown.Item
+                          href="#action/3.1"
+                          className="dropdown-list"
+                        >
+                          Customize Shop
+                        </NavDropdown.Item>
+                        <NavDropdown.Item
+                          href="#action/3.2"
+                          className="dropdown-list"
+                        >
+                          Trendin Product
+                        </NavDropdown.Item>
+                        <NavDropdown.Item
+                          href="#action/3.3"
+                          className="dropdown-list"
+                        >
+                          Discount Shop
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                    </div>
+                  ) : (
+                    ""
+                  )}
 
-      <Navbar bg="black" expand="lg">
-        <Container>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="toggle" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mx-auto">
-              <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1" className="dropdown-list">
-                  Action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2" className="dropdown-list">
-                  Another action
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3" className="dropdown-list">
-                  Something
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4" className="dropdown-list">
-                  Separated link
-                </NavDropdown.Item>
-              </NavDropdown>
-              <Nav.Link href="/home" className="nav-text ps-4 pe-4 ms-1">
-                Home
-              </Nav.Link>
-              {admin ? (
-                <Nav.Link href="#link" className="nav-text ps-4 pe-4 ms-1">
-                  Dashboard
-                </Nav.Link>
-              ) : (
-                ""
-              )}
-
-              <Nav.Link href="/home" className="nav-text ps-4 pe-4 ms-1">
-                Contact
-              </Nav.Link>
-              <Nav.Link href="/home" className="nav-text ps-4 pe-4 ms-1">
-                Pages
-              </Nav.Link>
-              <Nav.Link href="/home" className="nav-text ps-4 pe-4 ms-1">
-                Home
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
+                  <li className="nav-item">
+                    <Nav.Link
+                      className="nav-link active   ankor"
+                      aria-current="page"
+                      href="#"
+                    >
+                      Contact
+                    </Nav.Link>
+                  </li>
+                  {user.emailVerified ? (
+                    <div>
+                      <li className="nav-item">
+                        <Nav.Link href="/login">
+                          <button className="header-btn" onClick={Logout}>
+                            Logout
+                          </button>
+                        </Nav.Link>
+                      </li>
+                    </div>
+                  ) : (
+                    <div>
+                      <li className="nav-item">
+                        <Nav.Link
+                          className="nav-link active   ankor"
+                          aria-current="page"
+                          href="/login"
+                        >
+                          Login
+                        </Nav.Link>
+                      </li>
+                    </div>
+                  )}
+                  {user.emailVerified ? (
+                    ""
+                  ) : (
+                    <div>
+                      <li className="nav-item">
+                        <Nav.Link
+                          className="nav-link active   ankor"
+                          aria-current="page"
+                          href="/register"
+                        >
+                          Register
+                        </Nav.Link>
+                      </li>
+                    </div>
+                  )}
+                </ul>
+                <form className="d-flex">
+                  <input
+                    className="form-control me-2"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                  />
+                  <button className="btn btn-outline-success " type="submit">
+                    Search
+                  </button>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
     </div>
   );
 };
