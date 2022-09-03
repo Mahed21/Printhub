@@ -26,15 +26,6 @@ const Header = () => {
   // console.log(adminData.email);
   return (
     <div>
-      <div className="container d-flex justify-content-between mb-4 mt-4">
-        <h3>PrintUp</h3>
-        <div>
-          <i class="fab fa-facebook-f me-3 header-logo"></i>
-          <i class="fab fa-twitter me-3 header-logo"></i>
-          <i class="fab fa-instagram me-3 header-logo"></i>
-          <i class="fas fa-envelope-open-text header-logo"></i>
-        </div>
-      </div>
       <div className="header pt-2 pb-2">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light">

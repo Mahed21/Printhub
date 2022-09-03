@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import UseAuth from "../Context/UseAuth";
 import { useNavigate } from "react-router";
 import "./spinner.css";
@@ -10,6 +10,7 @@ const Spinner = () => {
   if (user.emailVerified) {
     navigate("/");
   }
+
   return (
     <div className="spinner-parent d-flex justify-content-center align-items-center">
       <div className="spinner-border spinner" role="status">

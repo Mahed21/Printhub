@@ -1,27 +1,46 @@
-.login {
-  background-color: white;
+.login-parent {
+  background: url("../../image/login_background.jpg");
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
-.login-form {
-  background-color: white;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  font-family: Arial, Helvetica, sans-serif;
-}
-input {
-  background-color: #3f3e43;
-  border: none;
+.login {
+  background: rgba(6, 6, 6, 0.5);
+  min-height: 65vh;
+  width: 60vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   border-radius: 20px;
-  color: white !important;
-  font-size: 15px;
 }
-::placeholder {
-  color: rgb(167, 154, 154);
+.google-btn {
+  background-color: #dd4b39;
+  color: white;
+  border: none;
+  width: 100%;
 }
 .login-btn {
-  background-color: #3f3e43;
+  background-color: #1273eb;
   color: white;
-  border-radius: 10px;
+  border: none;
+  width: 100%;
+}
+.signup {
+  font-weight: bolder;
+  color: white;
+  font-size: 35px;
+}
+input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 3px solid white;
+}
+::placeholder {
+  color: white;
+}
+.login-link {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
 }

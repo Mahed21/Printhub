@@ -24,41 +24,44 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="login">
-        <div className="login-form p-5">
-          <h1>Login Form</h1>
+    <div className=" ">
+      <div className="d-flex justify-content-center login-parent p-5 align-items-center">
+        <div className="login p-5">
+          <div className="d-flex justify-content-around mb-3">
+            <h4 className="signup ps-4 pe-4 pt-3 pb-3 text-center">Sign in</h4>
+          </div>
+
           <input
-            placeholder="email"
+            placeholder="Email"
             type="email"
-            className="mt-4 p-3"
+            className="mt-4 p-1 w-100"
             onBlur={emailHandle}
           />
+          <br />
           <input
-            placeholder="password"
+            placeholder="Password"
             type="password"
-            className="mt-4 p-3"
+            className="mt-4 p-1 w-100"
             onBlur={passHandle}
           />
+
           <br />
-          <div className="d-flex">
-            <button
-              className="login-btn mt-5 ps-4 pe-4 pt-1 pb-1"
-              onClick={handleLogin}
-            >
-              Login
+          <br />
+          <div>
+            <button className="login-btn pt-2 pb-2 mb-3" onClick={handleLogin}>
+              Sign In Button
             </button>
-            <Nav.Link href="/register" className="mt-5">
+          </div>
+          <div className="">
+            <button className="google-btn pt-2 pb-2" onClick={googleSignIn}>
+              Login with Google
+            </button>
+          </div>
+          <div className="d-flex justify-content-center">
+            <Nav.Link href="/register" className="mt-1 login-link">
               Not Registerd?
             </Nav.Link>
           </div>
-          <br />
-          <button
-            className="login-btn mt-3 ps-4 pe-4 pt-1 pb-1"
-            onClick={googleSignIn}
-          >
-            Login With Google
-          </button>
         </div>
       </div>
     </div>

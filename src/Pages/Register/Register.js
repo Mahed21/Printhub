@@ -32,42 +32,47 @@ const Register = () => {
   };
   return (
     <div>
-      <div className="login">
-        <div className="login-form p-5">
-          <h1>Registration Form</h1>
+      <div className="d-flex justify-content-center login-parent p-5 align-items-center">
+        <div className="login p-5">
+          <div className="d-flex justify-content-around mb-5">
+            <h3 className="signup ps-4 pe-4 pt-3 pb-3 text-center">Sign Up</h3>
+          </div>
           <input
             placeholder="Name"
             type="text"
-            className="mt-4 p-3"
+            className="mt-4 p-1 w-100"
             onBlur={handleName}
           />
           <input
             placeholder="email"
             type="email"
-            className="mt-4 p-3"
+            className="mt-4 p-1 w-100"
             onBlur={handleEmail}
           />
+          <br />
           <input
             placeholder="password"
             type="password"
-            className="mt-4 p-3"
+            className="mt-4 p-1 w-100"
             onBlur={handlePass}
           />
           <input
-            placeholder=" Confirm password"
+            placeholder="Confirm password"
             type="password"
-            className="mt-4 p-3"
+            className="mt-4 p-1 w-100"
             onBlur={handleConPass}
           />
+
           <br />
-          <div className="d-flex">
-            <button
-              className="login-btn mt-5 ps-4 pe-4 pt-1 pb-1"
-              onClick={handleRegister}
-            >
-              Register
+          <br />
+
+          <div>
+            <button className="login-btn pt-2 pb-2" onClick={handleRegister}>
+              Sign In Button
             </button>
-            <Nav.Link href="/login" className="mt-5">
+          </div>
+          <div className="d-flex justify-content-center">
+            <Nav.Link href="/login" className="mt-1 login-link">
               Already Registerd?
             </Nav.Link>
           </div>

@@ -88,12 +88,14 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="footer-end p-4 d-flex justify-content-center">
-        <p>
-          Copyright <FontAwesomeIcon icon={faCopyright} className="icon mt-1" />{" "}
-          2022 printup
-        </p>
+        <hr />
+        <div className="footer-end p-4 d-flex justify-content-center">
+          <p>
+            Copyright{" "}
+            <FontAwesomeIcon icon={faCopyright} className="icon mt-1" /> 2022
+            printup
+          </p>
+        </div>
       </div>
     </div>
   );
