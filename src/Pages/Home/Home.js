@@ -10,35 +10,35 @@ const Home = () => {
   return (
     <div>
       <div className="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card mb-3  card_design">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src={heaven} class="img-fluid rounded-start h-100" alt="..." />
+        <div className="row">
+          <div className="col-lg-6">
+            <div className="card mb-3  card_design">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={heaven} className="img-fluid rounded-start h-100" alt="..." />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Sports Heaven</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Sports Heaven</h5>
+                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="#" className="btn btn-primary">Check Availability</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6 ml-5">
-            <div class="card mb-3  card_design">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src={arena} class="img-fluid rounded-start h-100" alt="..." />
+          <div className="col-lg-6 ml-5">
+            <div className="card mb-3  card_design">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={arena} className="img-fluid rounded-start h-100" alt="..." />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Futsal Arena</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Futsal Arena</h5>
+                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="#" className="btn btn-primary">Check Availability</a>
                   </div>
                 </div>
               </div>
@@ -46,70 +46,70 @@ const Home = () => {
           </div>
         </div>
 
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card mb-3  card_design">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src={crossbar} class="img-fluid rounded-start h-100" alt="..." />
+        <div className="row">
+          <div className="col-lg-6">
+            <div className="card mb-3  card_design">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={crossbar} className="img-fluid rounded-start h-100" alt="..." />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Crossbar</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Crossbar</h5>
+                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="#" className="btn btn-primary">Check Availability</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6 ml-5">
-            <div class="card mb-3  card_design">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src={free_kick} class="img-fluid rounded-start h-100" alt="..." />
+          <div className="col-lg-6 ml-5">
+            <div className="card mb-3  card_design">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={free_kick} className="img-fluid rounded-start h-100" alt="..." />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Free Kick</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Free Kick</h5>
+                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="#" className="btn btn-primary">Check Availability</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="card mb-3  card_design">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src={kick_off} class="img-fluid rounded-start h-60" alt="..." />
+        <div className="row">
+          <div className="col-lg-6">
+            <div className="card mb-3  card_design">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={kick_off} className="img-fluid rounded-start h-60" alt="..." />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Kick Off</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Kick Off</h5>
+                    <p className="card-text">Location: This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="#" className="btn btn-primary">Check Availability</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-6 ml-5">
-            <div class="card mb-3  card_design">
-              <div class="row g-0">
-                <div class="col-md-4">
-                  <img src={arena} class="img-fluid rounded-start h-100" alt="..." />
+          <div className="col-lg-6 ml-5">
+            <div className="card mb-3  card_design">
+              <div className="row g-0">
+                <div className="col-md-4">
+                  <img src={arena} className="img-fluid rounded-start h-100" alt="..." />
                 </div>
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <div className="col-md-8">
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">Location: This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <a href="#" className="btn btn-primary">Check Availability</a>
                   </div>
                 </div>
               </div>
