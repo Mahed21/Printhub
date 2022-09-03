@@ -9,8 +9,15 @@ import kick_off from "../../image/kick_off_chondipul.jpg"
 const Home = () => {
   return (
     <div>
-      <div className="container">
-        <div className="row">
+      <div className="home_banner">
+        <a href="#" className="btn d-flex justify-content-center">Join Turnament</a>
+
+      </div>
+      <div className="container mt-5 mb-4">
+        <div className="title">
+          <h1>Indoor in Sylhet</h1>
+        </div>
+        <div className="row mt-3">
           <div className="col-lg-6">
             <div className="card mb-3  card_design">
               <div className="row g-0">

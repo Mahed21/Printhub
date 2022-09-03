@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.home_banner {
+    background-image: url("../../image/banner_image.jpg");
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title h1 {
+    text-align: center;
+}
+
+.home_banner a {
+    color: white;
+    text-align: center;
+    font-weight: bolder;
+    font-size: xx-large;
+
+}
+
+.home_banner a:hover {
+    color: #e7ab3c;
+}
