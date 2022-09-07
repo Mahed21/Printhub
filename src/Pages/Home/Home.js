@@ -13,7 +13,7 @@ const Home = () => {
         <a href="#" className="btn d-flex justify-content-center">Join Turnament</a>
 
       </div>
-      <div className="container mt-5 mb-4">
+      <div className="container mt-2 mb-4">
         <div className="title">
           <h1>Indoor in Sylhet</h1>
         </div>

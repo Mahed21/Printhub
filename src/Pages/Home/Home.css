@@ -5,7 +5,7 @@
 
 .home_banner {
     background-image: url("../../image/banner_image.jpg");
-    height: 100vh;
+    height: 120vh;
     background-size: cover;
     background-repeat: no-repeat;
 }
