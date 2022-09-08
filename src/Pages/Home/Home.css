@@ -25,3 +25,17 @@
 .home_banner a:hover {
     color: #e7ab3c;
 }
+
+/* .mapouter {
+    position: relative;
+    text-align: right;
+    height: 100px;
+    width: 100px;
+}
+
+gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 100px;
+    width: 100px;
+} */
