@@ -4,8 +4,8 @@
 }
 
 .home_banner {
-    background-image: url("../../image/banner_image.jpg");
-    height: 120vh;
+    background-image: url("../../image/bt2.jpg");
+    height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -20,6 +20,19 @@
     font-weight: bolder;
     font-size: xx-large;
 
+}
+
+button {
+    background-color: black;
+    padding: 0;
+    margin: 0;
+}
+
+.createTurnament {
+    background: rgba(255, 255, 255, .5);
+    height: 40vh;
+    /* background-color: white; */
+    /* opacity: 50%; */
 }
 
 .home_banner a:hover {

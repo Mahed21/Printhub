@@ -6,12 +6,41 @@ import crossbar from "../../image/crossbar.png"
 import free_kick from "../../image/free_kick.jpg"
 import kick_off from "../../image/kickoff.jpg"
 import goal from "../../image/goal.jpg"
+import tournament from "../../image/tournament.jpg"
 
 const Home = () => {
   return (
     <div>
       <div className="home_banner">
-        <a href="#" className="btn d-flex justify-content-center">Join Turnament</a>
+
+        <div className="row ">
+          <div className="col-lg-1">
+          </div>
+          <div className="col-lg-10 createTurnament p-5 mt-5 rounded d-flex justify-content-center">
+            <div className="">
+              <a href="#" className="btn btn-primary mt-1">Check Availability</a>
+            </div>
+          </div>
+          <div className="col-lg-1">
+
+          </div>
+
+        </div>
+
+        <div className="row">
+          <div className="col-lg-1">
+          </div>
+          <div className="col-lg-10 createTurnament p-5 mt-5 rounded d-flex justify-content-center">
+            <div className="">
+              <a href="#" className="btn btn-primary mt-1">Check Availability</a>
+            </div>
+          </div>
+          <div className="col-lg-1">
+
+          </div>
+
+        </div>
+
 
       </div>
       <div className="container mt-2 mb-4">

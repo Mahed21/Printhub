@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import UseAuth from "../Context/UseAuth";
 import "./Header.css";
 
+import logo from "../../image/logo2.png";
+
 const Header = () => {
   const [admin, setAdmin] = useState(false);
   const [adminData, setAdminData] = useState({});
@@ -29,6 +31,9 @@ const Header = () => {
       <div className="header pt-2 pb-2">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light">
+            <Navbar.Brand href="/">
+              <img src={logo} alt="eFutsal" />
+            </Navbar.Brand>
             <div className="container-fluid">
               <button
                 className="navbar-toggler toggle"
