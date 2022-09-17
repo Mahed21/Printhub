@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./Pages/Header/Header";
 import { Route, Routes } from "react-router-dom";
@@ -10,6 +11,7 @@ import Register from "./Pages/Register/Register";
 import AuthProvider from "./Pages/Context/AuthProvider";
 
 import Spinner from "./Pages/Spinner/Spinner";
+import BookingListOnDate from "./Pages/Booking/BookingListOnDate";
 
 function App() {
   return (
@@ -22,6 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/spinner" element={<Spinner />} />
+          <Route path="/bookingListOnDate" element={<BookingListOnDate />} />
         </Routes>
         <Footer></Footer>
       </AuthProvider>

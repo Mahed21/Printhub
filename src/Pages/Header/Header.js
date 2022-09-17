@@ -8,24 +8,8 @@ import "./Header.css";
 import logo from "../../image/logo2.png";
 
 const Header = () => {
-  const [admin, setAdmin] = useState(false);
-  const [adminData, setAdminData] = useState({});
   const { user, Logout } = UseAuth();
 
-  useEffect(() => {
-    fetch("http://localhost:3000/admin")
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(user);
-        const datas = data.filter((d) => d.email === user.email);
-        if (datas.length) {
-          setAdmin(true);
-        }
-      });
-  }, []);
-
-  // console.log(adminData);
-  // console.log(adminData.email);
   return (
     <div>
       <div className="header pt-2 pb-2">
@@ -60,56 +44,6 @@ const Header = () => {
                       Home
                     </Nav.Link>
                   </li>
-                  <NavDropdown title="Shop" id="basic-nav-dropdown">
-                    <NavDropdown.Item
-                      href="#action/3.1"
-                      className="dropdown-list"
-                    >
-                      Customize Shop
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.2"
-                      className="dropdown-list"
-                    >
-                      Trendin Product
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      href="#action/3.3"
-                      className="dropdown-list"
-                    >
-                      Discount Shop
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                  {admin ? (
-                    <div>
-                      {" "}
-                      <NavDropdown
-                        title="Admin Dashboard"
-                        id="basic-nav-dropdown"
-                      >
-                        <NavDropdown.Item
-                          href="#action/3.1"
-                          className="dropdown-list"
-                        >
-                          Customize Shop
-                        </NavDropdown.Item>
-                        <NavDropdown.Item
-                          href="#action/3.2"
-                          className="dropdown-list"
-                        >
-                          Trendin Product
-                        </NavDropdown.Item>
-                        <NavDropdown.Item
-                          href="#action/3.3"
-                          className="dropdown-list"
-                        >
-                          Discount Shop
-                        </NavDropdown.Item>
-                      </NavDropdown>
-                    </div>
-                  ) : (
-                    ""
-                  )}
 
                   <li className="nav-item">
                     <Nav.Link
