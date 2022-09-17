@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DisplayBookingList from "./DisplayBookingList";
 import "./booking.css";
-import { TimePicker } from "antd";
+import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../Context/UseAuth";
 
 const BookingListOnDate = () => {
@@ -14,15 +14,25 @@ const BookingListOnDate = () => {
   const [name, setName] = useState("");
   let email = user.email;
   console.log(email);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/booking")
-      .then((res) => res.json())
-      .then((data) => {
-        const filterData = data.filter((datas) => datas.date === date);
+  const { isLoading, error, data, refetch } = useQuery(["repoData"], () =>
+    fetch("http://localhost:5000/booking").then((res) =>
+      res.json().then((data) => {
+        const filterData = data.filter(
+          (datas) => datas.date === date && datas.venue === venue
+        );
         setBookingList(filterData);
-      });
-  }, []);
+      })
+    )
+  );
+
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/booking")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const filterData = data.filter((datas) => datas.date === date);
+  //       setBookingList(filterData);
+  //     });
+  // }, []);
   const handleName = (e) => {
     setName(e.target.value);
   };
@@ -33,7 +43,7 @@ const BookingListOnDate = () => {
     e.preventDefault();
     console.log(time);
     console.log(name);
-    const newUser = { name, time, date, email };
+    const newUser = { name, time, date, email, venue };
     fetch("http://localhost:5000/booking", {
       method: "POST",
       headers: {
@@ -44,6 +54,7 @@ const BookingListOnDate = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
+          refetch();
           alert("successfully collected");
         }
       });
