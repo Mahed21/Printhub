@@ -10,15 +10,23 @@ import tournament from "../../image/tournament.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { DatePicker } from "antd";
 import moment from "moment";
+import UseAuth from "../Context/UseAuth";
 
 const Home = () => {
+  const { user } = UseAuth();
   const navigate = useNavigate();
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState("");
   const handleDate = (e) => {
     setDate(moment(e._d).format("MMM Do YY"));
   };
   const moveBookingDetails = (venue) => {
-    navigate("/bookingListOnDate", { state: { date: date, venue: venue } });
+    if (!user.emailVerified) {
+      navigate("/login");
+    } else if (!date) {
+      alert("select date");
+    } else {
+      navigate("/bookingListOnDate", { state: { date: date, venue: venue } });
+    }
   };
   return (
     <div>

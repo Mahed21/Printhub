@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import DisplayBookingList from "./DisplayBookingList";
 import "./booking.css";
 import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../Context/UseAuth";
+import moment from "moment";
+import { TimePicker } from "antd";
+import Marquee from "react-fast-marquee";
 
 const BookingListOnDate = () => {
+  const [checkedBook, setcheckedBook] = useState({});
+  const format = "HH";
   const { user } = UseAuth();
   const location = useLocation();
   const { date, venue } = location.state;
   const [bookingList, setBookingList] = useState([]);
   const [time, setTime] = useState("");
-  const [name, setName] = useState("");
+  const nameRef = useRef();
   let email = user.email;
-  console.log(email);
+
+  // console.log(email);
   const { isLoading, error, data, refetch } = useQuery(["repoData"], () =>
     fetch("http://localhost:5000/booking").then((res) =>
       res.json().then((data) => {
@@ -33,48 +39,87 @@ const BookingListOnDate = () => {
   //       setBookingList(filterData);
   //     });
   // }, []);
-  const handleName = (e) => {
-    setName(e.target.value);
+
+  const timeHandle = (e) => {
+    // console.log("hi");
+    let hour = moment(e._d).format("h a");
+    setTime(hour);
+    // console.log(time);
   };
-  const handleTime = (e) => {
-    setTime(e.target.value);
-  };
+
   const confirmBooking = (e) => {
     e.preventDefault();
     console.log(time);
-    console.log(name);
-    const newUser = { name, time, date, email, venue };
-    fetch("http://localhost:5000/booking", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newUser),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          refetch();
-          alert("successfully collected");
-        }
-      });
+    if (
+      time === "2 am" ||
+      time === "3 am" ||
+      time === "4 am" ||
+      time === "5 am" ||
+      time === "6 am" ||
+      time === "6 am"
+    ) {
+      alert("The time you want to booked thsese is closing time");
+    } else {
+      let name = nameRef.current.value;
+      // console.log(name);
+      fetch(`http://localhost:5000/booking/${date}`)
+        .then((res) => res.json())
+        .then((data) => {
+          const filterBooked = data.filter(
+            (data) => data.venue === venue && data.time === time
+          );
+          setcheckedBook(filterBooked);
+          console.log(checkedBook.length);
+        });
+
+      if (checkedBook.length) {
+        alert(`${time} already booked`);
+      } else {
+        setcheckedBook("");
+        const newUser = { name, time, date, email, venue };
+        fetch("http://localhost:5000/booking", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              refetch();
+              alert("successfully collected");
+            }
+          });
+      }
+    }
+    e.reset();
   };
 
   return (
     <div className="container mt-5 booking">
+      <Marquee
+        direction="right"
+        speed={100}
+        pauseOnClick={true}
+        className="marquee mb-5"
+      >
+        <h3>closed time 2AM to 7AM</h3>
+      </Marquee>
       <div className="mb-3">
         <h5 className="text-center">{venue}</h5>
         <h5 className="text-center">{date}</h5>
       </div>
+
       <h1>Booked Time List</h1>
       <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">serial</th>
             <th scope="col">Date</th>
             <th scope="col">Time Slot</th>
             <th scope="col">name</th>
             <th scope="col">email</th>
+            <th scope="col">Indoor</th>
           </tr>
         </thead>
         <tbody>
@@ -97,17 +142,23 @@ const BookingListOnDate = () => {
               placeholder="Enter Full Name"
               type="text"
               className="mt-4 p-1 w-100"
-              onBlur={handleName}
+              ref={nameRef}
               required
             />
             <br />
             <br />
-            <input
+            {/* <input
               type="text"
               placeholder="hours AM/PM- hours AM/PM"
               onBlur={handleTime}
               required
             />
+
+            <br />
+            <br /> */}
+            <div>
+              <TimePicker format={format} onChange={timeHandle} required />
+            </div>
             <br />
             <br />
             <input type="submit" value="book" className="login-btn p-2" />
