@@ -136,7 +136,12 @@ const BookingListOnDate = () => {
             <br />
 
             <div>
-              <TimePicker format={format} onChange={timeHandle} required />
+              <TimePicker
+                format={format}
+                use12Hours
+                onChange={timeHandle}
+                required
+              />
             </div>
             <br />
             <br />

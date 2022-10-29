@@ -22,3 +22,31 @@
 .header-btn {
   color: white;
 }
+.availableBtn {
+  background-color: #1f2029;
+  color: white;
+  border: none;
+  font-size: 18px;
+}
+.availableBtn :hover {
+  background-color: rgb(241, 188, 49);
+}
+.save-btn {
+  color: #1f2029;
+  border-bottom: none !important;
+}
+.cancel-btn {
+  color: red;
+  background-color: white;
+  border: none;
+}
+.available input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+  background-color: white;
+}
+.available ::placeholder {
+  color: black;
+}

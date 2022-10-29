@@ -13,6 +13,7 @@ import AuthProvider from "./Pages/Context/AuthProvider";
 import Spinner from "./Pages/Spinner/Spinner";
 import BookingListOnDate from "./Pages/Booking/BookingListOnDate";
 import IndoorAdd from "./Pages/IndoorAdd/IndoorAdd";
+import Oponant from "./Pages/Oponant/Oponant";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/spinner" element={<Spinner />} />
           <Route path="/bookingListOnDate" element={<BookingListOnDate />} />
           <Route path="/indoorAdd" element={<IndoorAdd />} />
+          <Route path="/oponant" element={<Oponant />} />
         </Routes>
         <Footer></Footer>
       </AuthProvider>
