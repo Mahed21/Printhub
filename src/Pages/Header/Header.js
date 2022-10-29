@@ -9,6 +9,19 @@ import logo from "../../image/logo2.png";
 
 const Header = () => {
   const { user, Logout } = UseAuth();
+  const [admin, setAdmin] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/admin")
+      .then((res) => res.json())
+      .then((data) => {
+        const getData = data.filter((datas) => user.email === datas.email);
+
+        if (getData.length > 0) {
+          setAdmin(true);
+        }
+      });
+  }, [user.email]);
 
   return (
     <div>
@@ -54,11 +67,27 @@ const Header = () => {
                       Contact
                     </Nav.Link>
                   </li>
+                  {admin ? (
+                    <li className="nav-item">
+                      <Nav.Link
+                        className="nav-link active   ankor"
+                        aria-current="page"
+                        href="/indoorAdd"
+                      >
+                        Add Indoor
+                      </Nav.Link>
+                    </li>
+                  ) : (
+                    ""
+                  )}
                   {user.emailVerified ? (
                     <div>
                       <li className="nav-item">
                         <Nav.Link href="/login">
-                          <button className="header-btn" onClick={Logout}>
+                          <button
+                            className="header-btn ps-3 pe-3"
+                            onClick={Logout}
+                          >
                             Logout
                           </button>
                         </Nav.Link>

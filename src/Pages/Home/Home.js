@@ -11,361 +11,44 @@ import { Link, useNavigate } from "react-router-dom";
 import { DatePicker } from "antd";
 import moment from "moment";
 import UseAuth from "../Context/UseAuth";
+import Marquee from "react-fast-marquee";
+import IndoorList from "../IndoorList/IndoorList";
 
 const Home = () => {
   const { user } = UseAuth();
   const navigate = useNavigate();
   const [date, setDate] = useState("");
+  const [indoorList, setIndoorList] = useState([]);
+  fetch("http://localhost:5000/indoor")
+    .then((res) => res.json())
+    .then((data) => setIndoorList(data));
+
   const handleDate = (e) => {
     setDate(moment(e._d).format("MMM Do YY"));
   };
-  const moveBookingDetails = (venue) => {
-    if (!user.emailVerified) {
-      navigate("/login");
-    } else if (!date) {
-      alert("select date");
-    } else {
-      navigate("/bookingListOnDate", { state: { date: date, venue: venue } });
-    }
-  };
+
   return (
     <div>
       {/* banner */}
-      <div className="home_banner">
-        <div className="row ">
-          <div className="col-lg-1"></div>
-          <div className="col-lg-10 createTurnament p-5 mt-5 rounded d-flex justify-content-center">
-            <div className="">
-              <button className="btn btn-primary mt-1">
-                Check Availability
-              </button>
-            </div>
-          </div>
-          <div className="col-lg-1"></div>
-        </div>
-
-        <div className="row">
-          <div className="col-lg-1"></div>
-          <div className="col-lg-10 createTurnament p-5 mt-5 rounded d-flex justify-content-center">
-            <div className="">
-              <button className="btn btn-primary mt-1">
-                Check Availability
-              </button>
-            </div>
-          </div>
-          <div className="col-lg-1"></div>
-        </div>
-      </div>
+      <div className="home_banner"></div>
 
       {/* indoor in sylhet */}
       <div className="container mt-2 mb-4">
         <div className="title">
-          <h1>Indoor in Sylhet</h1>
-        </div>
-        <div className="row mt-3">
-          <div className="col-lg-6">
-            <div className="card mb-3  card_design">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={heaven}
-                    className="img-fluid rounded-start h-100"
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Sports Heaven</h5>
-                    <h6 className="mb-2">Location:</h6>
-                    <div class="mapouter">
-                      <div class="gmap_canvas">
-                        <iframe
-                          width="100%"
-                          height="100vh"
-                          src="https://maps.google.com/maps?q=sports%20heaven%20sylhet&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                          frameborder="0"
-                          scrolling="no"
-                          marginheight="0"
-                          marginwidth="0"
-                        ></iframe>
-                      </div>
-                    </div>
-                    <div className="mt-2 mb-2 datepicker">
-                      <DatePicker
-                        style={{
-                          cursor: "pointer",
-                          fontSize: "17px",
-                          border: "2px solid #0D6EFD",
-                          //backgroundColor: "#0D6EFD",
-                        }}
-                        onChange={handleDate}
-                      ></DatePicker>
-                    </div>
-                    <button
-                      onClick={() => moveBookingDetails("Sports Heaven")}
-                      className="btn btn-primary mt-1"
-                    >
-                      Check Availability
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-6 ml-5">
-            <div className="card mb-3  card_design">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={arena}
-                    className="img-fluid rounded-start h-100"
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Futsal Arena</h5>
-                    <h6 className="mb-2">Location:</h6>
-                    <div class="mapouter">
-                      <div class="gmap_canvas">
-                        <iframe
-                          width="100%"
-                          height="100vh"
-                          src="https://maps.google.com/maps?q=Futsal%20Arena,%20VRQX+3MP,%20Technical%20Rd,%20Sylhet&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                          frameborder="0"
-                          scrolling="no"
-                          marginheight="0"
-                          marginwidth="0"
-                        ></iframe>
-                      </div>
-                    </div>
-                    <div className="mt-2 mb-2 datepicker">
-                      <DatePicker
-                        style={{
-                          cursor: "pointer",
-                          fontSize: "17px",
-                          border: "2px solid #0D6EFD",
-                          //backgroundColor: "#0D6EFD",
-                        }}
-                        onChange={handleDate}
-                      ></DatePicker>
-                    </div>
-                    <button
-                      onClick={() => moveBookingDetails("Futsal Arena")}
-                      className="btn btn-primary mt-1"
-                    >
-                      Check Availability
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Marquee
+            direction="right"
+            speed={100}
+            pauseOnClick={true}
+            className="marquee mb-5"
+          >
+            <h3>Indoor in Sylhet</h3>
+          </Marquee>
         </div>
 
         <div className="row">
-          <div className="col-lg-6">
-            <div className="card mb-3  card_design">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={crossbar}
-                    className="img-fluid rounded-start h-100"
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Crossbar</h5>
-                    <h6 className="mb-2">Location:</h6>
-                    <div class="mapouter">
-                      <div class="gmap_canvas">
-                        <iframe
-                          width="100%"
-                          height="100vh"
-                          src="https://maps.google.com/maps?q=Crossbar,%20Sheikh%20Akram,%20Furkan%20Ullah%20Rd,%20Shibganj%203100&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                          frameborder="0"
-                          scrolling="no"
-                          marginheight="0"
-                          marginwidth="0"
-                        ></iframe>
-                      </div>
-                    </div>
-                    <div className="mt-2 mb-2 datepicker">
-                      <DatePicker
-                        style={{
-                          cursor: "pointer",
-                          fontSize: "17px",
-                          border: "2px solid #0D6EFD",
-                          //backgroundColor: "#0D6EFD",
-                        }}
-                        onChange={handleDate}
-                      ></DatePicker>
-                    </div>
-                    <button
-                      onClick={() => moveBookingDetails("Crossbar")}
-                      href="#"
-                      className="btn btn-primary mt-1"
-                    >
-                      Check Availability
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-6 ml-5">
-            <div className="card mb-3  card_design">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={free_kick}
-                    className="img-fluid rounded-start h-100"
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Free Kick</h5>
-                    <h6 className="mb-2">Location:</h6>
-                    <div class="mapouter">
-                      <div class="gmap_canvas">
-                        <iframe
-                          width="100%"
-                          height="100vh"
-                          src="https://maps.google.com/maps?q=Free%20Kick,%20Sylhet&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                          frameborder="0"
-                          scrolling="no"
-                          marginheight="0"
-                          marginwidth="0"
-                        ></iframe>
-                      </div>
-                    </div>
-
-                    <DatePicker
-                      style={{
-                        cursor: "pointer",
-                        fontSize: "17px",
-                        border: "2px solid #0D6EFD",
-                        //backgroundColor: "#0D6EFD",
-                      }}
-                      onChange={handleDate}
-                    ></DatePicker>
-                  </div>
-                  <button
-                    onClick={() => moveBookingDetails("Free Kick")}
-                    className="btn btn-primary mt-1 ms-3"
-                  >
-                    Check Availability
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          <div className="col-lg-6">
-            <div className="card mb-3  card_design">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={kick_off}
-                    className="img-fluid rounded-start h-100"
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">Kick Off</h5>
-                    <h6 className="mb-1">Location:</h6>
-                    <div class="mapouter">
-                      <div class="gmap_canvas">
-                        <iframe
-                          width="100%"
-                          height="100vh"
-                          src="https://maps.google.com/maps?q=VV96+CJQ,%20Pirozpur%20baypass,%203100&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                          frameborder="0"
-                          scrolling="no"
-                          marginheight="0"
-                          marginwidth="0"
-                        ></iframe>
-                      </div>
-                    </div>
-                    <div className="mt-2 mb-2 datepicker">
-                      <DatePicker
-                        style={{
-                          cursor: "pointer",
-                          fontSize: "17px",
-                          border: "2px solid #0D6EFD",
-                          //backgroundColor: "#0D6EFD",
-                        }}
-                        onChange={handleDate}
-                      ></DatePicker>
-                    </div>
-                    <button
-                      onClick={() => moveBookingDetails("Kick Off")}
-                      className="btn btn-primary mt-1"
-                    >
-                      Check Availability
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-6 ml-5">
-            <div className="card mb-3  card_design">
-              <div className="row g-0">
-                <div className="col-md-4">
-                  <img
-                    src={goal}
-                    className="img-fluid rounded-start h-100"
-                    alt="..."
-                  />
-                </div>
-                <div className="col-md-8">
-                  <div className="card-body">
-                    <h5 className="card-title">GOAL</h5>
-                    <h6 className="mb-1">Location:</h6>
-                    <div class="mapouter">
-                      <div class="gmap_canvas">
-                        <iframe
-                          width="100%"
-                          height="100vh"
-                          src="https://maps.google.com/maps?q=goal%20sylhet&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                          frameborder="0"
-                          scrolling="no"
-                          marginheight="0"
-                          marginwidth="0"
-                        ></iframe>
-                      </div>
-                    </div>
-                    <div className="mt-2 mb-2 datepicker">
-                      <DatePicker
-                        style={{
-                          cursor: "pointer",
-                          fontSize: "17px",
-                          border: "2px solid #0D6EFD",
-                          //backgroundColor: "#0D6EFD",
-                        }}
-                        onChange={handleDate}
-                      ></DatePicker>
-                    </div>
-                    <button
-                      onClick={() => moveBookingDetails("Goal")}
-                      className="btn btn-primary mt-1"
-                    >
-                      Check Availability
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {indoorList.map((list) => (
+            <IndoorList list={list} key={list._id}></IndoorList>
+          ))}
         </div>
       </div>
     </div>

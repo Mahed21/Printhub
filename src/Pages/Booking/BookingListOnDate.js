@@ -31,69 +31,56 @@ const BookingListOnDate = () => {
     )
   );
 
-  // useEffect(() => {
-  //   fetch("http://localhost:5000/booking")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       const filterData = data.filter((datas) => datas.date === date);
-  //       setBookingList(filterData);
-  //     });
-  // }, []);
-
   const timeHandle = (e) => {
-    // console.log("hi");
     let hour = moment(e._d).format("h a");
     setTime(hour);
-    // console.log(time);
   };
 
   const confirmBooking = (e) => {
     e.preventDefault();
-    console.log(time);
-    if (
-      time === "2 am" ||
-      time === "3 am" ||
-      time === "4 am" ||
-      time === "5 am" ||
-      time === "6 am" ||
-      time === "6 am"
-    ) {
-      alert("The time you want to booked thsese is closing time");
-    } else {
-      let name = nameRef.current.value;
-      // console.log(name);
-      fetch(`http://localhost:5000/booking/${date}`)
-        .then((res) => res.json())
-        .then((data) => {
-          const filterBooked = data.filter(
-            (data) => data.venue === venue && data.time === time
-          );
-          setcheckedBook(filterBooked);
-          console.log(checkedBook.length);
-        });
 
-      if (checkedBook.length) {
-        alert(`${time} already booked`);
+    console.log(time);
+    if (!time) {
+      alert("Select Time");
+      setTime("");
+    } else {
+      if (
+        time === "2 am" ||
+        time === "3 am" ||
+        time === "4 am" ||
+        time === "5 am" ||
+        time === "6 am" ||
+        time === "6 am"
+      ) {
+        alert("The time you want to booked thsese is closing time");
       } else {
-        setcheckedBook("");
-        const newUser = { name, time, date, email, venue };
-        fetch("http://localhost:5000/booking", {
-          method: "POST",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify(newUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.insertedId) {
-              refetch();
-              alert("successfully collected");
-            }
-          });
+        let name = nameRef.current.value;
+
+        const getFilterData = bookingList.filter((data) => data.time === time);
+        console.log(getFilterData.length);
+
+        if (getFilterData.length) {
+          alert(`${time} already booked`);
+        } else {
+          setcheckedBook("");
+          const newUser = { name, time, date, email, venue };
+          fetch("http://localhost:5000/booking", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                refetch();
+                alert("successfully collected");
+              }
+            });
+        }
       }
     }
-    e.reset();
   };
 
   return (
@@ -141,21 +128,13 @@ const BookingListOnDate = () => {
             <input
               placeholder="Enter Full Name"
               type="text"
-              className="mt-4 p-1 w-100"
+              className="mt-4 p-1 w-100 booking_name"
               ref={nameRef}
               required
             />
             <br />
             <br />
-            {/* <input
-              type="text"
-              placeholder="hours AM/PM- hours AM/PM"
-              onBlur={handleTime}
-              required
-            />
 
-            <br />
-            <br /> */}
             <div>
               <TimePicker format={format} onChange={timeHandle} required />
             </div>

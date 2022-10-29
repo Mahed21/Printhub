@@ -4,8 +4,8 @@
 }
 
 .home_banner {
-  background-image: url("../../image/bt2.jpg");
-  height: 100vh;
+  background-image: url("../../image/banner1.jpg");
+  height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -30,24 +30,11 @@ button {
 .createTurnament {
   background: rgba(255, 255, 255, 0.5);
   height: 40vh;
-  /* background-color: white; */
-  /* opacity: 50%; */
 }
 
 .home_banner a:hover {
   color: #e7ab3c;
 }
-
-/* .mapouter {
-    position: relative;
-    text-align: right;
-    height: 100px;
-    width: 100px;
+.indoor_sylhet {
+  color: #e7ab3c;
 }
-
-gmap_canvas {
-    overflow: hidden;
-    background: none !important;
-    height: 100px;
-    width: 100px;
-} */

@@ -7,3 +7,6 @@
 .marquee h3 {
   color: #f1bc31;
 }
+.booking_name::placeholder {
+  color: black;
+}

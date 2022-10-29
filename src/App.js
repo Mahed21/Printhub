@@ -12,6 +12,7 @@ import AuthProvider from "./Pages/Context/AuthProvider";
 
 import Spinner from "./Pages/Spinner/Spinner";
 import BookingListOnDate from "./Pages/Booking/BookingListOnDate";
+import IndoorAdd from "./Pages/IndoorAdd/IndoorAdd";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/spinner" element={<Spinner />} />
           <Route path="/bookingListOnDate" element={<BookingListOnDate />} />
+          <Route path="/indoorAdd" element={<IndoorAdd />} />
         </Routes>
         <Footer></Footer>
       </AuthProvider>

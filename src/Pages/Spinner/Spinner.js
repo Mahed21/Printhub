@@ -5,11 +5,15 @@ import "./spinner.css";
 
 const Spinner = () => {
   let navigate = useNavigate();
+
   const { user } = UseAuth();
-  //   console.log(user);
+  console.log(user.emailVerified);
   if (user.emailVerified) {
     navigate("/");
   }
+  // useEffect(() => {
+  //   console.log(user);
+  // }, [user.emailVerified]);
 
   return (
     <div className="spinner-parent d-flex justify-content-center align-items-center">
