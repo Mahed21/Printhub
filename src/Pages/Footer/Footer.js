@@ -28,7 +28,7 @@ const Footer = () => {
                   icon={faEnvelopeOpenText}
                   className="me-2 icon"
                 />{" "}
-                printup255@gmail.com
+                efutsal255@gmail.com
               </p>
               <p>
                 {" "}
@@ -39,7 +39,6 @@ const Footer = () => {
                 +8801759704872
               </p>
               <div className="mt-5">
-                <i class="fab fa-google p-2 me-2"></i>
                 <i class="fab fa-facebook p-2 me-2"></i>
                 <i class="fab fa-twitter p-2 me-2"></i>
                 <i class="fab fa-instagram p-2 me-2"></i>
@@ -69,12 +68,12 @@ const Footer = () => {
               </p>
             </div>
             <div className="footer-col mb-3">
-              <h4>Our Services</h4>
-              <p>Customize Products</p>
-              <p>Trending Product</p>
-              <p>Discount Shop</p>
-              <p>Most Reviewed Shop</p>
-              <p>Customer Riview</p>
+              <h4>Find Oponant</h4>
+              <p>Book Indoor</p>
+              <p>Create Tournament</p>
+              <p>Add Indoor</p>
+              <p>Iive update</p>
+              <p>About Us</p>
             </div>
             <div className="footer-col mb-3">
               <h4>Our Newsletter</h4>
@@ -82,7 +81,7 @@ const Footer = () => {
                 <input placeholder="Your Email Id " />
                 <input
                   placeholder="Subscribe"
-                  className="mt-3 newsletter-input"
+                  className="mt-2 newsletter-input"
                 />
               </div>
             </div>

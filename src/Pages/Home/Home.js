@@ -77,7 +77,7 @@ const Home = () => {
   }, [user.email]);
   const postOponant = (e) => {
     e.preventDefault();
-    console.log('hii');
+    console.log("hii");
     const teamList = {
       teamName: teamName,
       availableDay: availableDay,
@@ -109,8 +109,6 @@ const Home = () => {
 
       {/* indoor in sylhet */}
 
-
-
       <div className="container mt-2 mb-4">
         <div className="title">
           <Marquee
@@ -123,7 +121,6 @@ const Home = () => {
           </Marquee>
         </div>
 
-
         <div className="row">
           {indoorList.map((list) => (
             <IndoorList list={list} key={list._id}></IndoorList>
@@ -131,13 +128,16 @@ const Home = () => {
         </div>
 
         <div className="d-flex justify-content-evenly refgisterTeambtn p-5">
-          <h3 className="mt-3 me-3 registerbtnText">  Register your team for a friendly match</h3>
+          <h3 className="mt-3 me-3 registerbtnText">
+            {" "}
+            Register your team for a friendly match
+          </h3>
           <div className="mt-3 mb-3">
             <button
               className="btn btn-primary mt-1 p-2 mb-4"
               onClick={openModal}
             >
-              Register your team for a friendly match
+              Add Your Team
             </button>
           </div>
         </div>
@@ -156,10 +156,7 @@ const Home = () => {
                 Already You register team using these email
               </h5>
               <div className="d-flex justify-content-end mt-3">
-                <button
-                  className="cancel-btn me-3"
-                  onClick={closeModal}
-                >
+                <button className="cancel-btn me-3" onClick={closeModal}>
                   cancel
                 </button>
               </div>
@@ -167,9 +164,7 @@ const Home = () => {
           ) : (
             <form onSubmit={postOponant}>
               <div className="container available">
-                <h5 className="mb-5 font-italic">
-                  Set your team for oponant
-                </h5>
+                <h5 className="mb-5 font-italic">Set your team for oponant</h5>
                 <div>
                   <input
                     placeholder="Team Name"
@@ -212,17 +207,10 @@ const Home = () => {
 
                 <br />
                 <div className="d-flex justify-content-end mt-3">
-                  <button
-                    className="cancel-btn me-3"
-                    onClick={closeModal}
-                  >
+                  <button className="cancel-btn me-3" onClick={closeModal}>
                     cancel
                   </button>
-                  <input
-                    type="submit"
-                    value="save"
-                    className="save-btn"
-                  />
+                  <input type="submit" value="save" className="save-btn" />
                 </div>
               </div>
             </form>

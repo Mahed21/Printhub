@@ -15,5 +15,13 @@
   color: black;
 }
 .addIndoorCard {
+  background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.indoorAdd {
+  background: url("../../image/login_background.jpg");
+  height: 120vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }

@@ -7,6 +7,7 @@ const IndoorAdd = () => {
   let navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
 
   const PostIndoor = (e) => {
     e.preventDefault();
@@ -28,6 +29,7 @@ const IndoorAdd = () => {
             const indoorList = {
               image: img,
               indoorName: name,
+              address: address,
             };
             fetch(`http://localhost:5000/indoor`, {
               method: "POST",
@@ -66,6 +68,12 @@ const IndoorAdd = () => {
           <input
             Placeholder="Enter Indoor Name"
             onChange={(e) => setName(e.target.value)}
+          />
+          <br />
+          <br />
+          <input
+            Placeholder="Enter Indoor Address"
+            onChange={(e) => setAddress(e.target.value)}
           />
           <br />
           <br />

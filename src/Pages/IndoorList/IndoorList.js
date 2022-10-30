@@ -7,7 +7,7 @@ import UseAuth from "../Context/UseAuth";
 const IndoorList = (props) => {
   const { user } = UseAuth();
   let navigate = useNavigate();
-  const { indoorName, image, _id } = props.list;
+  const { indoorName, image, _id, address } = props.list;
   const [date, setDate] = useState();
   const handleDate = (e) => {
     setDate(moment(e._d).format("MMM Do YY"));
@@ -36,7 +36,8 @@ const IndoorList = (props) => {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title">{indoorName}</h5>
-              <h6 className="mb-1">Location:</h6>
+              <h5 className="card-title">Location: {address}</h5>
+
               {/* <div class="mapouter">
                 <div class="gmap_canvas">
                   <iframe
