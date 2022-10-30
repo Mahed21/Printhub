@@ -35,6 +35,16 @@ button {
 .home_banner a:hover {
   color: #e7ab3c;
 }
+
 .indoor_sylhet {
   color: #e7ab3c;
+}
+
+.refgisterTeambtn {
+  background-color: #1F2029;
+  color: white;
+}
+
+.registerbtnText {
+  color: white
 }
