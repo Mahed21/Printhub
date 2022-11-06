@@ -11,45 +11,43 @@ const IndoorAdd = () => {
 
   const PostIndoor = (e) => {
     e.preventDefault();
-    if (!name) {
-      alert("indoor Name Required");
-    } else {
-      const formData = new FormData();
 
-      formData.append("image", image);
-      const url = `https://api.imgbb.com/1/upload?key=6e348ee5df7e5ac0e70738f8b8b2f9f0`;
-      fetch(url, {
-        method: "POST",
-        body: formData,
-      })
-        .then((res) => res.json())
-        .then((result) => {
-          if (result.success) {
-            const img = result.data.url;
-            const indoorList = {
-              image: img,
-              indoorName: name,
-              address: address,
-            };
-            fetch(`http://localhost:5000/indoor`, {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify(indoorList),
-            })
-              .then((res) => res.json())
-              .then((data) => {
-                if (data.insertedId) {
-                  alert("Data inserted Successfully");
-                  //console.log(data);
-                  setName("");
-                  navigate("/");
-                }
-              });
-          }
-        });
-    }
+    const formData = new FormData();
+
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=6e348ee5df7e5ac0e70738f8b8b2f9f0`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const img = result.data.url;
+          const indoorList = {
+            image: img,
+            indoorName: name,
+            address: address,
+          };
+          fetch(`http://localhost:5000/indoor`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(indoorList),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.status === "success") {
+                alert("request of adding indoor has been submitted");
+                setName("");
+                navigate("/");
+              } else {
+                alert(data.data);
+              }
+            });
+        }
+      });
   };
 
   return (

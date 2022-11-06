@@ -21,7 +21,7 @@ const Footer = () => {
         <div className="container">
           <div className="row row-cols-lg-4">
             <div className="footer-col mb-3">
-              <h4>Address</h4>
+              <h4 className="footer-head mb-4">Address</h4>
               <p>
                 {" "}
                 <FontAwesomeIcon
@@ -46,7 +46,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="footer-col mb-3">
-              <h4>Useful Links</h4>
+              <h4 className="footer-head mb-4">Useful Links</h4>
               <p>
                 <FontAwesomeIcon icon={faHome} className="me-2 icon" /> Home
               </p>
@@ -68,7 +68,7 @@ const Footer = () => {
               </p>
             </div>
             <div className="footer-col mb-3">
-              <h4>Find Oponant</h4>
+              <h4 className="footer-head mb-4">Find Oponant</h4>
               <p>Book Indoor</p>
               <p>Create Tournament</p>
               <p>Add Indoor</p>
@@ -76,7 +76,7 @@ const Footer = () => {
               <p>About Us</p>
             </div>
             <div className="footer-col mb-3">
-              <h4>Our Newsletter</h4>
+              <h4 className="footer-head mb-4">Our Newsletter</h4>
               <div className="footer-input">
                 <input placeholder="Your Email Id " />
                 <input

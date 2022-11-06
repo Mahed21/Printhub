@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
 }
-
+.home {
+  background-color: #f2f2f2;
+}
 .home_banner {
   background-image: url("../../image/banner1.jpg");
   height: 80vh;
@@ -29,6 +31,7 @@ button {
 
 .createTurnament {
   background: rgba(255, 255, 255, 0.5);
+
   height: 40vh;
 }
 
@@ -40,11 +43,11 @@ button {
   color: #e7ab3c;
 }
 
-.refgisterTeambtn {
-  background-color: #1F2029;
-  color: white;
+.registerTeambtn {
+  background-color: #e5f0ff;
+  color: black;
 }
 
 .registerbtnText {
-  color: white
+  color: black;
 }

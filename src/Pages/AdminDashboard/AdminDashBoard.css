@@ -1,0 +1,10 @@
+.dash-btn-status {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+}
+.dash-btn-del {
+  background-color: rgb(144, 8, 8);
+  border: none;
+  color: white;
+}

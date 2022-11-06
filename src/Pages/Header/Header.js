@@ -23,15 +23,14 @@ const customStyles = {
 const Header = () => {
   let navigate = useNavigate();
   const { user, Logout } = UseAuth();
-  console.log(user.email);
+  // console.log(user.email);
   const [admin, setAdmin] = useState(false);
-
 
   useEffect(() => {
     fetch("http://localhost:5000/admin")
       .then((res) => res.json())
       .then((data) => {
-        const getData = data.filter((datas) => user.email === datas.email);
+        const getData = data.data.filter((datas) => user.email === datas.email);
 
         if (getData.length > 0) {
           setAdmin(true);
@@ -39,16 +38,9 @@ const Header = () => {
       });
   }, [user.email]);
 
-
-
-
-
-
-
-
   return (
     <div>
-      <div className="header pt-2 pb-2">
+      <div className="header pt-1 pb-1">
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light">
             <Navbar.Brand href="/">
@@ -89,15 +81,23 @@ const Header = () => {
                       Contact
                     </Nav.Link>
                   </li>
+                  <li className="nav-item">
+                    <Nav.Link
+                      className="nav-link active   ankor"
+                      aria-current="page"
+                      href="/indoorAdd"
+                    >
+                      Add Indoor
+                    </Nav.Link>
+                  </li>
                   {admin ? (
-                    <li className="nav-item">
-                      <Nav.Link
-                        className="nav-link active   ankor"
-                        aria-current="page"
-                        href="/indoorAdd"
-                      >
-                        Add Indoor
-                      </Nav.Link>
+                    <li class="dropdown me-3 mt-2">
+                      <li>Admin Dashboard</li>
+                      <div class="dropdown-content">
+                        <Nav.Link href="/requestedIndoor">
+                          Manage Indoor
+                        </Nav.Link>
+                      </div>
                     </li>
                   ) : (
                     ""
@@ -117,8 +117,6 @@ const Header = () => {
                   ) : (
                     ""
                   )}
-
-
 
                   {user.emailVerified ? (
                     <div>
@@ -162,17 +160,14 @@ const Header = () => {
                     </div>
                   )}
                 </ul>
-                <form className="d-flex">
-                  <input
-                    className="form-control me-2"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                  />
-                  <button className="btn btn-outline-success " type="submit">
-                    Search
-                  </button>
-                </form>
+                <div>
+                  <li class="dropdown me-3 mt-2">
+                    <li>Dashboard</li>
+                    <div class="dropdown-content">
+                      <Nav.Link href="/manageOponant">Manage Oponant</Nav.Link>
+                    </div>
+                  </li>
+                </div>
               </div>
             </div>
           </nav>

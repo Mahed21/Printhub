@@ -1,15 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import heaven from "../../image/sports_heaven.jpg";
-import arena from "../../image/arena.jpg";
-import crossbar from "../../image/crossbar.png";
-import free_kick from "../../image/free_kick.jpg";
-import kick_off from "../../image/kickoff.jpg";
-import goal from "../../image/goal.jpg";
-import tournament from "../../image/tournament.jpg";
-import { Link, useNavigate } from "react-router-dom";
-import { DatePicker } from "antd";
-import moment from "moment";
+import { useNavigate } from "react-router-dom";
 import UseAuth from "../Context/UseAuth";
 import Marquee from "react-fast-marquee";
 import IndoorList from "../IndoorList/IndoorList";
@@ -30,6 +21,8 @@ const customStyles = {
 const Home = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [availableDay, setAvailableDay] = useState("");
+  const [availableTime, setAvailableTime] = useState("");
+  const [venueName, setVenueName] = useState("");
   const [teamName, setTeamName] = useState("");
   const [contact, setContact] = useState("");
   const [description, setdescription] = useState("");
@@ -38,13 +31,17 @@ const Home = () => {
   const navigate = useNavigate();
   const [date, setDate] = useState("");
   const [indoorList, setIndoorList] = useState([]);
-  fetch("http://localhost:5000/indoor")
-    .then((res) => res.json())
-    .then((data) => setIndoorList(data));
-
-  const handleDate = (e) => {
-    setDate(moment(e._d).format("MMM Do YY"));
-  };
+  useEffect(() => {
+    fetch("http://localhost:5000/indoor")
+      .then((res) => res.json())
+      .then((data) => {
+        const fetchIndoorList = data.data.filter(
+          (datas) => datas.status === "active"
+        );
+        console.log(fetchIndoorList);
+        setIndoorList(fetchIndoorList);
+      });
+  }, []);
 
   //modal
   let subtitle;
@@ -64,7 +61,7 @@ const Home = () => {
     fetch("http://localhost:5000/team")
       .then((res) => res.json())
       .then((data) => {
-        const fetchTeamData = data.filter(
+        const fetchTeamData = data.data.filter(
           (datas) => datas.email === user.email
         );
 
@@ -77,10 +74,13 @@ const Home = () => {
   }, [user.email]);
   const postOponant = (e) => {
     e.preventDefault();
-    console.log("hii");
+
     const teamList = {
       teamName: teamName,
-      availableDay: availableDay,
+      day: availableDay,
+      time: availableTime,
+      date: date,
+      venue: venueName,
       contact: contact,
       description: description,
       email: user.email,
@@ -95,15 +95,18 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => {
         //console.log(data);
-
-        alert("Data collected Successfully");
-        closeModal();
-        navigate("/oponant");
+        if (data.status === "success") {
+          alert("Data collected Successfully");
+          closeModal();
+          navigate("/oponant");
+        } else {
+          alert(data.data);
+        }
       });
   };
 
   return (
-    <div>
+    <div className="home">
       {/* banner */}
       <div className="home_banner"></div>
 
@@ -121,13 +124,14 @@ const Home = () => {
           </Marquee>
         </div>
 
+        {/* all indoors */}
         <div className="row">
           {indoorList.map((list) => (
             <IndoorList list={list} key={list._id}></IndoorList>
           ))}
         </div>
 
-        <div className="d-flex justify-content-evenly refgisterTeambtn p-5">
+        <div className="d-flex justify-content-evenly registerTeambtn p-5">
           <h3 className="mt-3 me-3 registerbtnText">
             {" "}
             Register your team for a friendly match
@@ -177,11 +181,41 @@ const Home = () => {
                 <br />
                 <div>
                   <input
-                    placeholder="Mention available day"
+                    placeholder="Day"
                     className="w-100"
                     type="text"
                     required
                     onChange={(e) => setAvailableDay(e.target.value)}
+                  />
+                </div>
+                <br />
+                <div>
+                  <input
+                    placeholder="Time"
+                    className="w-100"
+                    type="text"
+                    required
+                    onChange={(e) => setAvailableTime(e.target.value)}
+                  />
+                </div>
+                <br />
+                <div>
+                  <input
+                    placeholder="dd/mm/yy"
+                    className="w-100"
+                    type="text"
+                    required
+                    onChange={(e) => setDate(e.target.value)}
+                  />
+                </div>
+                <br />
+                <div>
+                  <input
+                    placeholder="Mention Indoor Name"
+                    className="w-100"
+                    type="text"
+                    required
+                    onChange={(e) => setVenueName(e.target.value)}
                   />
                 </div>
                 <br />

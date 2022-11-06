@@ -14,6 +14,8 @@ import Spinner from "./Pages/Spinner/Spinner";
 import BookingListOnDate from "./Pages/Booking/BookingListOnDate";
 import IndoorAdd from "./Pages/IndoorAdd/IndoorAdd";
 import Oponant from "./Pages/Oponant/Oponant";
+import RequestedIndoor from "./Pages/AdminDashboard/RequestedIndoor";
+import ManageOponant from "./Pages/UserDashBoard/ManageOponant";
 
 function App() {
   return (
@@ -29,6 +31,8 @@ function App() {
           <Route path="/bookingListOnDate" element={<BookingListOnDate />} />
           <Route path="/indoorAdd" element={<IndoorAdd />} />
           <Route path="/oponant" element={<Oponant />} />
+          <Route path="/requestedIndoor" element={<RequestedIndoor />} />
+          <Route path="/manageOponant" element={<ManageOponant />} />
         </Routes>
         <Footer></Footer>
       </AuthProvider>
