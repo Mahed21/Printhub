@@ -43,7 +43,7 @@ const DisplayManageOpnant = (props) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success") {
-          alert("lets a play match");
+          alert("lets play Match");
           afterUpdate();
         }
       });
