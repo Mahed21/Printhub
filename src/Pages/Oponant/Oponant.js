@@ -5,7 +5,7 @@ import "./oponant.css";
 const Oponant = () => {
   const [teamdata, setTeamData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/team")
+    fetch("https://efutsal.onrender.com/team")
       .then((res) => res.json())
       .then((data) => {
         const fetchTeamData = data.data.filter(
@@ -15,7 +15,7 @@ const Oponant = () => {
       });
   }, []);
   return (
-    <div className="opponant container mt-5">
+    <div className="opponant container">
       <table class="table">
         <thead class="thead-dark">
           <tr>

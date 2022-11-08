@@ -1,0 +1,7 @@
+.app {
+  background-image: url("./image/banner/background.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

@@ -27,7 +27,7 @@ const Header = () => {
   const [admin, setAdmin] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/admin")
+    fetch("https://efutsal.onrender.com/admin")
       .then((res) => res.json())
       .then((data) => {
         const getData = data.data.filter((datas) => user.email === datas.email);
@@ -40,12 +40,14 @@ const Header = () => {
 
   return (
     <div>
-      <div className="header pt-1 pb-1">
-        <div className="container">
+      <div className="nav-logo">
+        <Navbar.Brand href="/">
+          <img src={logo} alt="eFutsal" />
+        </Navbar.Brand>
+      </div>
+      <div className="header pt-5 pb-5">
+        <div>
           <nav className="navbar navbar-expand-lg navbar-light">
-            <Navbar.Brand href="/">
-              <img src={logo} alt="eFutsal" />
-            </Navbar.Brand>
             <div className="container-fluid">
               <button
                 className="navbar-toggler toggle"
@@ -159,15 +161,21 @@ const Header = () => {
                       </li>
                     </div>
                   )}
+                  <div>
+                    {user.emailVerified ? (
+                      <li class="dropdown me-3 mt-2">
+                        <li>Dashboard</li>
+                        <div class="dropdown-content">
+                          <Nav.Link href="/manageOponant">
+                            Manage Oponant
+                          </Nav.Link>
+                        </div>
+                      </li>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </ul>
-                <div>
-                  <li class="dropdown me-3 mt-2">
-                    <li>Dashboard</li>
-                    <div class="dropdown-content">
-                      <Nav.Link href="/manageOponant">Manage Oponant</Nav.Link>
-                    </div>
-                  </li>
-                </div>
               </div>
             </div>
           </nav>

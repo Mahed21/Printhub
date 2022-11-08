@@ -6,7 +6,7 @@
   background-color: #f2f2f2;
 }
 .home_banner {
-  background-image: url("../../image/banner1.jpg");
+  background-image: url("../../image/banner/banner.jpg");
   height: 80vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -44,10 +44,10 @@ button {
 }
 
 .registerTeambtn {
-  background-color: #e5f0ff;
+  background-color: black;
   color: black;
 }
 
 .registerbtnText {
-  color: black;
+  color: white;
 }

@@ -5,7 +5,7 @@ import DisplayRequestedIndoor from "./DisplayRequestedIndoor";
 const RequestedIndoor = () => {
   const [indoorList, setIndoorList] = useState([]);
   const { isLoading, error, data, refetch } = useQuery(["repoData"], () => {
-    fetch("http://localhost:5000/indoor")
+    fetch("https://efutsal.onrender.com/indoor")
       .then((res) => res.json())
       .then((data) => setIndoorList(data.data));
   });

@@ -55,7 +55,7 @@ const DisplayAllOppnant = (props) => {
       oponant: opponatTeam,
       opponantContact: opponantContact,
     };
-    fetch(`http://localhost:5000/team/${id}`, {
+    fetch(`https://efutsal.onrender.com/team/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

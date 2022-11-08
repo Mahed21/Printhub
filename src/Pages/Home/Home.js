@@ -32,13 +32,13 @@ const Home = () => {
   const [date, setDate] = useState("");
   const [indoorList, setIndoorList] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/indoor")
+    fetch("https://efutsal.onrender.com/indoor")
       .then((res) => res.json())
       .then((data) => {
         const fetchIndoorList = data.data.filter(
           (datas) => datas.status === "active"
         );
-        console.log(fetchIndoorList);
+
         setIndoorList(fetchIndoorList);
       });
   }, []);
@@ -46,7 +46,11 @@ const Home = () => {
   //modal
   let subtitle;
   function openModal() {
-    setIsOpen(true);
+    if (user.email) {
+      setIsOpen(true);
+    } else {
+      navigate("/login");
+    }
   }
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
@@ -56,22 +60,22 @@ const Home = () => {
   function closeModal() {
     setIsOpen(false);
   }
-  const [TeamLoading, setTeamLoading] = useState(false);
-  useEffect(() => {
-    fetch("http://localhost:5000/team")
-      .then((res) => res.json())
-      .then((data) => {
-        const fetchTeamData = data.data.filter(
-          (datas) => datas.email === user.email
-        );
+  // const [TeamLoading, setTeamLoading] = useState(false);
+  // useEffect(() => {
+  //   fetch("https://efutsal.onrender.com/team")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       const fetchTeamData = data.data.filter(
+  //         (datas) => datas.email === user.email
+  //       );
 
-        if (fetchTeamData.length > 0) {
-          setTeamLoading(true);
-        } else {
-          setTeamLoading(false);
-        }
-      });
-  }, [user.email]);
+  //       if (fetchTeamData.length > 0) {
+  //         setTeamLoading(true);
+  //       } else {
+  //         setTeamLoading(false);
+  //       }
+  //     });
+  // }, [user.email]);
   const postOponant = (e) => {
     e.preventDefault();
 
@@ -85,7 +89,7 @@ const Home = () => {
       description: description,
       email: user.email,
     };
-    fetch(`http://localhost:5000/team`, {
+    fetch(`https://efutsal.onrender.com/team`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -112,7 +116,7 @@ const Home = () => {
 
       {/* indoor in sylhet */}
 
-      <div className="container mt-2 mb-4">
+      <div className="mt-5 mb-4">
         <div className="title">
           <Marquee
             direction="right"
@@ -131,7 +135,7 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="d-flex justify-content-evenly registerTeambtn p-5">
+        <div className="d-flex justify-content-evenly registerTeambtn p-5 mt-5">
           <h3 className="mt-3 me-3 registerbtnText">
             {" "}
             Register your team for a friendly match
@@ -154,101 +158,88 @@ const Home = () => {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          {TeamLoading ? (
-            <div>
-              <h5 className="p-5">
-                Already You register team using these email
-              </h5>
+          <form onSubmit={postOponant}>
+            <div className="container available">
+              <h5 className="mb-5 font-italic">Set your team for oponant</h5>
+              <div>
+                <input
+                  placeholder="Team Name"
+                  className="w-100 "
+                  type="text"
+                  required
+                  onChange={(e) => setTeamName(e.target.value)}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  placeholder="Day"
+                  className="w-100"
+                  type="text"
+                  required
+                  onChange={(e) => setAvailableDay(e.target.value)}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  placeholder="Time"
+                  className="w-100"
+                  type="text"
+                  required
+                  onChange={(e) => setAvailableTime(e.target.value)}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  placeholder="dd/mm/yy"
+                  className="w-100"
+                  type="text"
+                  required
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  placeholder="Mention Indoor Name"
+                  className="w-100"
+                  type="text"
+                  required
+                  onChange={(e) => setVenueName(e.target.value)}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  placeholder="Contact"
+                  className="w-100 "
+                  type="text"
+                  required
+                  onChange={(e) => setContact(e.target.value)}
+                />
+              </div>
+              <br />
+              <div>
+                <input
+                  placeholder="Description About the mtach"
+                  className="w-100 "
+                  type="text"
+                  required
+                  onChange={(e) => setdescription(e.target.value)}
+                />
+              </div>
+
+              <br />
               <div className="d-flex justify-content-end mt-3">
                 <button className="cancel-btn me-3" onClick={closeModal}>
                   cancel
                 </button>
+                <input type="submit" value="save" className="save-btn" />
               </div>
             </div>
-          ) : (
-            <form onSubmit={postOponant}>
-              <div className="container available">
-                <h5 className="mb-5 font-italic">Set your team for oponant</h5>
-                <div>
-                  <input
-                    placeholder="Team Name"
-                    className="w-100 "
-                    type="text"
-                    required
-                    onChange={(e) => setTeamName(e.target.value)}
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    placeholder="Day"
-                    className="w-100"
-                    type="text"
-                    required
-                    onChange={(e) => setAvailableDay(e.target.value)}
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    placeholder="Time"
-                    className="w-100"
-                    type="text"
-                    required
-                    onChange={(e) => setAvailableTime(e.target.value)}
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    placeholder="dd/mm/yy"
-                    className="w-100"
-                    type="text"
-                    required
-                    onChange={(e) => setDate(e.target.value)}
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    placeholder="Mention Indoor Name"
-                    className="w-100"
-                    type="text"
-                    required
-                    onChange={(e) => setVenueName(e.target.value)}
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    placeholder="Contact"
-                    className="w-100 "
-                    type="text"
-                    required
-                    onChange={(e) => setContact(e.target.value)}
-                  />
-                </div>
-                <br />
-                <div>
-                  <input
-                    placeholder="Description About the mtach"
-                    className="w-100 "
-                    type="text"
-                    required
-                    onChange={(e) => setdescription(e.target.value)}
-                  />
-                </div>
-
-                <br />
-                <div className="d-flex justify-content-end mt-3">
-                  <button className="cancel-btn me-3" onClick={closeModal}>
-                    cancel
-                  </button>
-                  <input type="submit" value="save" className="save-btn" />
-                </div>
-              </div>
-            </form>
-          )}
+          </form>
         </Modal>
         {/* modal code end */}
       </div>

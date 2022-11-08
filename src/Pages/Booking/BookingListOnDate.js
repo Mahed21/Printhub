@@ -21,7 +21,7 @@ const BookingListOnDate = () => {
 
   // console.log(email);
   const { isLoading, error, data, refetch } = useQuery(["repoData"], () =>
-    fetch("http://localhost:5000/booking").then((res) =>
+    fetch("https://efutsal.onrender.com/booking").then((res) =>
       res.json().then((data) => {
         const filterData = data.data.filter(
           (datas) => datas.date === date && datas.venue === venue
@@ -64,7 +64,7 @@ const BookingListOnDate = () => {
         } else {
           setcheckedBook("");
           const newUser = { name, time, date, email, venue };
-          fetch("http://localhost:5000/booking", {
+          fetch("https://efutsal.onrender.com/booking", {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -86,7 +86,7 @@ const BookingListOnDate = () => {
   };
 
   return (
-    <div className="container mt-5 booking">
+    <div className="mt-5 booking ps-2 pe-2">
       <Marquee
         direction="right"
         speed={100}

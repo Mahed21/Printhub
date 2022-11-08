@@ -10,7 +10,7 @@ const DisplayRequestedIndoor = (props) => {
     const updatestatus = {
       status: "active",
     };
-    fetch(`http://localhost:5000/indoor/${id}`, {
+    fetch(`https://efutsal.onrender.com/indoor/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -26,7 +26,7 @@ const DisplayRequestedIndoor = (props) => {
       });
   };
   const deleteIndoor = (id) => {
-    fetch(`http://localhost:5000/indoor/${id}`, {
+    fetch(`https://efutsal.onrender.com/indoor/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

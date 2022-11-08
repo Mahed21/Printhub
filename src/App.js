@@ -19,23 +19,25 @@ import ManageOponant from "./Pages/UserDashBoard/ManageOponant";
 
 function App() {
   return (
-    <div>
-      <AuthProvider>
-        <Header></Header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/spinner" element={<Spinner />} />
-          <Route path="/bookingListOnDate" element={<BookingListOnDate />} />
-          <Route path="/indoorAdd" element={<IndoorAdd />} />
-          <Route path="/oponant" element={<Oponant />} />
-          <Route path="/requestedIndoor" element={<RequestedIndoor />} />
-          <Route path="/manageOponant" element={<ManageOponant />} />
-        </Routes>
-        <Footer></Footer>
-      </AuthProvider>
+    <div className="app pt-5 ">
+      <div className="container">
+        <AuthProvider>
+          <Header></Header>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/spinner" element={<Spinner />} />
+            <Route path="/bookingListOnDate" element={<BookingListOnDate />} />
+            <Route path="/indoorAdd" element={<IndoorAdd />} />
+            <Route path="/oponant" element={<Oponant />} />
+            <Route path="/requestedIndoor" element={<RequestedIndoor />} />
+            <Route path="/manageOponant" element={<ManageOponant />} />
+          </Routes>
+          <Footer></Footer>
+        </AuthProvider>
+      </div>
     </div>
   );
 }

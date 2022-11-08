@@ -1,14 +1,14 @@
 .header {
-  background-color: #ffffff;
+  background-color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .ankor {
-  color: black !important;
+  color: white !important;
   font-size: 18px;
 }
 #basic-nav-dropdown {
-  color: black !important;
+  color: white !important;
   font-size: 18px;
 }
 .ankor:hover {
@@ -18,7 +18,7 @@
   background-color: rgb(241, 188, 49);
 }
 .toggle {
-  background-color: black;
+  background-color: white;
 }
 .header-btn {
   color: white;
@@ -70,6 +70,9 @@
   display: block;
 }
 .dropdown {
-  color: black;
+  color: white;
   font-size: 18px;
+}
+.nav-logo {
+  background-color: #e5eaed;
 }

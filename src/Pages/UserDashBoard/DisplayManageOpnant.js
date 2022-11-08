@@ -33,7 +33,7 @@ const DisplayManageOpnant = (props) => {
     const updateOponantInfo = {
       challange: "accepted",
     };
-    fetch(`http://localhost:5000/team/${id}`, {
+    fetch(`https://efutsal.onrender.com/team/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -66,8 +66,8 @@ const DisplayManageOpnant = (props) => {
   }
 
   return (
-    <div className="mt-5 container">
-      <div className="d-flex">
+    <div>
+      <div className="d-flex mb-4">
         <h3 className="me-2">
           {oponant} is accepted Your Challange on {day} at {time}
           {date} match at {venue}

@@ -11,19 +11,20 @@ const ManageOponant = () => {
 
   const [oponantInfo, setOponantInfo] = useState([]);
   const { isLoading, error, data, refetch } = useQuery(["repoData"], () => {
-    fetch("http://localhost:5000/team")
+    fetch("https://efutsal.onrender.com/team")
       .then((res) => res.json())
       .then((data) => {
         console.log(data.data);
         const oponantData = data.data.filter(
           (value) => user.email === value.email
         );
+        console.log(oponantData);
         setOponantInfo(oponantData);
       });
   });
 
   return (
-    <div className="userDashBoard">
+    <div className="userDashBoard pt-4">
       {oponantInfo.map((data) => (
         <DisplayManageOpnant
           data={data}

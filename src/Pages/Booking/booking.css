@@ -1,11 +1,12 @@
 .booking {
   min-height: 100vh;
+  background-color: white;
 }
 .marquee {
-  background-color: #e5f0ff;
+  background-color: black;
 }
 .marquee h3 {
-  color: black;
+  color: white;
 }
 .booking_name::placeholder {
   color: black;
