@@ -25,13 +25,29 @@ const ManageOponant = () => {
 
   return (
     <div className="userDashBoard pt-4">
-      {oponantInfo.map((data) => (
-        <DisplayManageOpnant
-          data={data}
-          key={data._id}
-          afterUpdate={(event) => refetch()}
-        ></DisplayManageOpnant>
-      ))}
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Team Name</th>
+            <th scope="col">Day</th>
+            <th scope="col">Time</th>
+            <th scope="col">Date</th>
+            <th scope="col">Indoor Name</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {oponantInfo.map((data) => (
+            <DisplayManageOpnant
+              data={data}
+              key={data._id}
+              afterUpdate={(event) => refetch()}
+            ></DisplayManageOpnant>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };

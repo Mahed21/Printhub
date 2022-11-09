@@ -100,9 +100,8 @@ const Home = () => {
       .then((data) => {
         //console.log(data);
         if (data.status === "success") {
-          alert("Data collected Successfully");
+          alert("Data collected waite for admin aproval");
           closeModal();
-          navigate("/oponant");
         } else {
           alert(data.data);
         }

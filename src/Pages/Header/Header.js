@@ -99,6 +99,9 @@ const Header = () => {
                         <Nav.Link href="/requestedIndoor">
                           Manage Indoor
                         </Nav.Link>
+                        <Nav.Link href="/aprovedTeamRequest">
+                          Team Request
+                        </Nav.Link>
                       </div>
                     </li>
                   ) : (

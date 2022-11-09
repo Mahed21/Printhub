@@ -69,6 +69,9 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
+.dropdown-content :hover {
+  background-color: rgb(241, 188, 49);
+}
 .dropdown {
   color: white;
   font-size: 18px;

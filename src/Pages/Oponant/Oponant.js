@@ -9,13 +9,16 @@ const Oponant = () => {
       .then((res) => res.json())
       .then((data) => {
         const fetchTeamData = data.data.filter(
-          (value) => value.challange !== "accepted"
+          (value) =>
+            value.challange !== "accepted" &&
+            value.isAdminApproved === "accepted"
         );
+
         setTeamData(fetchTeamData);
       });
   }, []);
   return (
-    <div className="opponant container">
+    <div className="opponant">
       <table class="table">
         <thead class="thead-dark">
           <tr>

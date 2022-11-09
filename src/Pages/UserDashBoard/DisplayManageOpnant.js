@@ -66,30 +66,40 @@ const DisplayManageOpnant = (props) => {
   }
 
   return (
-    <div>
-      <div className="d-flex mb-4">
-        <h3 className="me-2">
-          {oponant} is accepted Your Challange on {day} at {time}
-          {date} match at {venue}
-        </h3>
-        <div>
-          <button className="manageDashbtn p-2 me-2" onClick={openModal}>
-            Oponant Details
-          </button>
-        </div>
-        <div>
-          {challange === "accepted" ? (
-            <button className="manageDashbtn p-2 me-2">Lets Play</button>
-          ) : (
-            <button
-              className="manageDashbtn p-2 me-2"
-              onClick={() => updateOponant(_id)}
-            >
-              Confirm match
-            </button>
-          )}
-        </div>
-      </div>
+    <tr>
+      {oponant ? (
+        <th scope="row">{oponant} accepted your challange</th>
+      ) : (
+        <th scope="row">Pending</th>
+      )}
+
+      <td>{day}</td>
+      <td>{time}</td>
+      <td>{date}</td>
+      <td>{venue}</td>
+      <td>
+        <button className="manageDashbtn p-2 me-2" onClick={openModal}>
+          Oponant Details
+        </button>
+      </td>
+      <td>
+        {oponant ? (
+          <div>
+            {challange === "accepted" ? (
+              <button className="manageDashbtn p-2 me-2">Lets Play</button>
+            ) : (
+              <button
+                className="manageDashbtn p-2 me-2"
+                onClick={() => updateOponant(_id)}
+              >
+                Confirm match
+              </button>
+            )}
+          </div>
+        ) : (
+          ""
+        )}
+      </td>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -105,7 +115,7 @@ const DisplayManageOpnant = (props) => {
           </button>
         </div>
       </Modal>
-    </div>
+    </tr>
   );
 };
 
