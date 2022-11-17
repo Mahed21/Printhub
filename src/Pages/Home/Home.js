@@ -5,6 +5,7 @@ import UseAuth from "../Context/UseAuth";
 import Marquee from "react-fast-marquee";
 import IndoorList from "../IndoorList/IndoorList";
 import Modal from "react-modal";
+import TournamentHomePage from "../Tournament/TournamnetInHomePage/TournamentHomePage";
 const customStyles = {
   content: {
     top: "50%",
@@ -60,22 +61,7 @@ const Home = () => {
   function closeModal() {
     setIsOpen(false);
   }
-  // const [TeamLoading, setTeamLoading] = useState(false);
-  // useEffect(() => {
-  //   fetch("https://efutsal.onrender.com/team")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       const fetchTeamData = data.data.filter(
-  //         (datas) => datas.email === user.email
-  //       );
 
-  //       if (fetchTeamData.length > 0) {
-  //         setTeamLoading(true);
-  //       } else {
-  //         setTeamLoading(false);
-  //       }
-  //     });
-  // }, [user.email]);
   const postOponant = (e) => {
     e.preventDefault();
 
@@ -112,7 +98,9 @@ const Home = () => {
     <div className="home">
       {/* banner */}
       <div className="home_banner"></div>
-
+      {/* tournament */}
+      <TournamentHomePage></TournamentHomePage>
+      {/* end tournament */}
       {/* indoor in sylhet */}
 
       <div className="mt-5 mb-4">

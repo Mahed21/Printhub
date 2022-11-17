@@ -1,0 +1,29 @@
+.tournament {
+  min-height: 100vh;
+  background-color: white;
+}
+.tournament input {
+  border-bottom: 3px solid black !important;
+}
+.tournament-btn {
+  background-color: #1273eb;
+
+  color: white;
+  border: none;
+}
+.Details-tournament {
+  min-height: 80vh;
+  background-color: white;
+}
+.dispTournament-text {
+  color: gray;
+}
+/* .display-tournamnet {
+  background-color: rgb(132, 104, 104);
+}
+.dispTournament-text {
+  color: white !important;
+}
+.tournament-heading {
+  border-bottom: 3px solid #1273eb;
+} */

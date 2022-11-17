@@ -4,9 +4,9 @@ import "./AdminDashBoard.css";
 
 const DisplayRequestedIndoor = (props) => {
   const { afterUpdate } = props;
-  const { image, indoorName, address, status, _id } = props.data;
+  const { image, indoorName, address, status, _id, email } = props.data;
 
-  const changeStatus = (id) => {
+  const changeStatus = (id, email, indoorName) => {
     const updatestatus = {
       status: "active",
     };
@@ -22,10 +22,29 @@ const DisplayRequestedIndoor = (props) => {
         if (data.status === "success") {
           afterUpdate();
           alert("Successfully Updated");
+          //add indoor admin
+
+          const indoorAdmin = {
+            indoorName: indoorName,
+            email: email,
+          };
+          fetch(`http://localhost:5000/indoorAdmin`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(indoorAdmin),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+            });
+
+          //end add indoor admin
         }
       });
   };
-  const deleteIndoor = (id) => {
+  const deleteIndoor = (id, indoorName) => {
     fetch(`https://efutsal.onrender.com/indoor/${id}`, {
       method: "DELETE",
     })
@@ -34,6 +53,16 @@ const DisplayRequestedIndoor = (props) => {
         if (data.status === "success") {
           afterUpdate();
           alert("Successfully deleted");
+        }
+      });
+
+    fetch(`http://localhost:5000/indoorAdmin/${indoorName}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "success") {
+          //console.log(data);
         }
       });
   };
@@ -47,13 +76,13 @@ const DisplayRequestedIndoor = (props) => {
           <div className="d-flex justify-content-between">
             <button
               className="dash-btn-status ps-3 pe-3 pt-1 pb-1"
-              onClick={() => changeStatus(_id)}
+              onClick={() => changeStatus(_id, email, indoorName)}
             >
               {status}
             </button>
             <button
               className="dash-btn-del ps-3 pe-3 pt-1 pb-1"
-              onClick={() => deleteIndoor(_id)}
+              onClick={() => deleteIndoor(_id, indoorName)}
             >
               Delete
             </button>

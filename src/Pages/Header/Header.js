@@ -25,6 +25,7 @@ const Header = () => {
   const { user, Logout } = UseAuth();
   // console.log(user.email);
   const [admin, setAdmin] = useState(false);
+  const [adminIndoor, setAdminIndoor] = useState(false);
 
   useEffect(() => {
     fetch("https://efutsal.onrender.com/admin")
@@ -34,6 +35,20 @@ const Header = () => {
 
         if (getData.length > 0) {
           setAdmin(true);
+        }
+      });
+  }, [user.email]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/indoorAdmin")
+      .then((res) => res.json())
+      .then((data) => {
+        const getIndoorAdminData = data.data.filter(
+          (datas) => user.email === datas.email
+        );
+
+        if (getIndoorAdminData.length > 0) {
+          setAdminIndoor(true);
         }
       });
   }, [user.email]);
@@ -172,6 +187,18 @@ const Header = () => {
                           <Nav.Link href="/manageOponant">
                             Manage Oponant
                           </Nav.Link>
+                          {adminIndoor ? (
+                            <Nav.Link href="/tournament">
+                              Create Tournament
+                            </Nav.Link>
+                          ) : (
+                            ""
+                          )}
+                          {adminIndoor ? (
+                            <Nav.Link href="/teamList">Team List</Nav.Link>
+                          ) : (
+                            ""
+                          )}
                         </div>
                       </li>
                     ) : (

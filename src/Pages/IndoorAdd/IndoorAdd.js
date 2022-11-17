@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import profile from "../../image/profile.jpg";
+import UseAuth from "../Context/UseAuth";
 import "./Indoor.css";
 
 const IndoorAdd = () => {
+  const { user } = UseAuth();
   let navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [name, setName] = useState("");
@@ -28,8 +30,9 @@ const IndoorAdd = () => {
             image: img,
             indoorName: name,
             address: address,
+            email: user.email,
           };
-          fetch(`https://efutsal.onrender.com/indoor`, {
+          fetch(`http://localhost:5000/indoor`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

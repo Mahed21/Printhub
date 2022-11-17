@@ -17,6 +17,9 @@ import Oponant from "./Pages/Oponant/Oponant";
 import RequestedIndoor from "./Pages/AdminDashboard/RequestedIndoor";
 import ManageOponant from "./Pages/UserDashBoard/ManageOponant";
 import AprovedTeamRequest from "./Pages/AdminDashboard/AprovedTeamRequest";
+import Tournament from "./Pages/Tournament/Tournament";
+
+import TeamList from "./Pages/UserDashBoard/TeamList";
 
 function App() {
   return (
@@ -35,10 +38,13 @@ function App() {
             <Route path="/oponant" element={<Oponant />} />
             <Route path="/requestedIndoor" element={<RequestedIndoor />} />
             <Route path="/manageOponant" element={<ManageOponant />} />
+            <Route path="/tournament" element={<Tournament />} />
+
             <Route
               path="/aprovedTeamRequest"
               element={<AprovedTeamRequest />}
             />
+            <Route path="/TeamList" element={<TeamList />} />
           </Routes>
           <Footer></Footer>
         </AuthProvider>
