@@ -10,7 +10,7 @@ const TeamList = () => {
   const [AllRgisterdTeam, setAllRegisterdTeam] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/teamEntry")
+    fetch("https://efutsal.onrender.com/teamEntry")
       .then((res) => res.json())
       .then((data) => {
         //console.log(data.data);

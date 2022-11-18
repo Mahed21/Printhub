@@ -10,7 +10,7 @@ const Tournament = () => {
   const { user } = UseAuth();
   const [adminIndoorData, setAdminIndoorData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/indoorAdmin")
+    fetch("https://efutsal.onrender.com/indoorAdmin")
       .then((res) => res.json())
       .then((data) => {
         const fetchIndoorList = data.data.filter(

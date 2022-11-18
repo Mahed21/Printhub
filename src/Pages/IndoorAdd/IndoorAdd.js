@@ -32,7 +32,7 @@ const IndoorAdd = () => {
             address: address,
             email: user.email,
           };
-          fetch(`http://localhost:5000/indoor`, {
+          fetch(`https://efutsal.onrender.com/indoor`, {
             method: "POST",
             headers: {
               "content-type": "application/json",

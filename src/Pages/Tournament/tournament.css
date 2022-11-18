@@ -18,6 +18,14 @@
 .dispTournament-text {
   color: gray;
 }
+Modal {
+  background-color: black;
+}
+th {
+  background-color: #1273eb !important;
+
+  color: white;
+}
 /* .display-tournamnet {
   background-color: rgb(132, 104, 104);
 }

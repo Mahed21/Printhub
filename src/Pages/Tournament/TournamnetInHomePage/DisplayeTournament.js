@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../tournament.css";
 import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
 import Modal from "react-modal";
 const customStyles = {
   content: {
@@ -43,6 +44,13 @@ const DisplayeTournament = (props) => {
   const [teamEmail, setTeamEmail] = useState("");
   const [teamContact, setTeamContat] = useState("");
   const [teamAddress, setTeamAdress] = useState("");
+  const [Player, setPlayer] = useState("");
+  const [Player1, setPlayer1] = useState("");
+  const [Player2, setPlayer2] = useState("");
+  const [Player3, setPlayer3] = useState("");
+  const [Player4, setPlayer4] = useState("");
+  const [Player5, setPlayer5] = useState("");
+  const [Player6, setPlayer6] = useState("");
 
   let subtitle;
   function openModal() {
@@ -68,8 +76,15 @@ const DisplayeTournament = (props) => {
       indoorAdminEmail: email,
       HostindoorName: indoorName,
       TournamnetName: tournamentName,
+      PlayerNameOne: Player,
+      PlayerNameTwo: Player1,
+      PlayerNameThree: Player2,
+      PlayerNameFour: Player3,
+      PlayerNameFive: Player4,
+      PlayerNameSix: Player5,
+      PlayerNameSeven: Player6,
     };
-    fetch(`http://localhost:5000/teamEntry`, {
+    fetch(`https://efutsal.onrender.com/teamEntry`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -81,7 +96,7 @@ const DisplayeTournament = (props) => {
         if (data.status === "success") {
           alert("Successfully Registerd Team");
           closeModal();
-          console.log(data.data._id);
+          //console.log(data.data._id);
           const doc = new jsPDF();
 
           doc.text(
@@ -91,15 +106,34 @@ const DisplayeTournament = (props) => {
           );
           doc.text(`Team Name ${data.data.RegisterdteamName}`, 10, 20);
           doc.text(`Venue: ${data.data.HostindoorName}`, 10, 30);
-          doc.text(`Confimation Secret Key ${data.data._id}`, 10, 40);
-          doc.text(
-            `Dont Share Secret Key with anyoune fixture will update in website`,
-            10,
-            50
-          );
+          // doc.text(`Confimation Secret Key ${data.data._id}`, 10, 40);
+          // doc.text(
+          //   `Dont Share Secret Key with anyoune fixture will update in website`,
+          //   10,
+          //   50
+          // );
+          // autoTable(doc, { html: "#my-table" });
+          autoTable(doc, {
+            margin: { top: 40 },
+            head: [["Serial", "Player Name"]],
+            body: [
+              ["1", data.data.PlayerNameOne],
+              ["2", data.data.PlayerNameTwo],
+              ["3", data.data.PlayerNameThree],
+              ["4", data.data.PlayerNameFour],
+              ["5", data.data.PlayerNameFive],
+              ["6", data.data.PlayerNameSix],
+              ["7", data.data.PlayerNameSeven],
+              // ...
+            ],
+          });
           doc.save("eFutsal.pdf");
         }
       });
+  };
+
+  const ViewAllTeam = (email) => {
+    navigate("/viewAllTeamSquad", { state: { email: email } });
   };
 
   return (
@@ -158,12 +192,22 @@ const DisplayeTournament = (props) => {
               </div>
 
               <div className="d-flex justify-content-end">
-                <button
-                  className="tournament-btn ps-4 pe-4 pt-2 pb-2 mt-3"
-                  onClick={openModal}
-                >
-                  Register A Team
-                </button>
+                <div>
+                  <button
+                    className="tournament-btn ps-4 pe-4 pt-2 pb-2 mt-3 me-3"
+                    onClick={openModal}
+                  >
+                    Register Your Team
+                  </button>
+                </div>
+                <div>
+                  <button
+                    className="tournament-btn ps-4 pe-4 pt-2 pb-2 mt-3"
+                    onClick={() => ViewAllTeam(email)}
+                  >
+                    View All Registerd Team
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -218,6 +262,76 @@ const DisplayeTournament = (props) => {
                 type="text"
                 required
                 onChange={(e) => setTeamAdress(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                placeholder="Player 1"
+                className="w-100"
+                type="text"
+                required
+                onChange={(e) => setPlayer(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                placeholder="Player 2"
+                className="w-100"
+                type="text"
+                required
+                onChange={(e) => setPlayer1(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                placeholder="Player 3"
+                className="w-100"
+                type="text"
+                required
+                onChange={(e) => setPlayer2(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                placeholder="Player 4"
+                className="w-100"
+                type="text"
+                required
+                onChange={(e) => setPlayer3(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                placeholder="Player 5"
+                className="w-100"
+                type="text"
+                required
+                onChange={(e) => setPlayer4(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                placeholder="Player 6"
+                className="w-100"
+                type="text"
+                required
+                onChange={(e) => setPlayer5(e.target.value)}
+              />
+            </div>
+            <br />
+            <div>
+              <input
+                placeholder="Player 7"
+                className="w-100"
+                type="text"
+                required
+                onChange={(e) => setPlayer6(e.target.value)}
               />
             </div>
 

@@ -28,7 +28,7 @@ const DisplayRequestedIndoor = (props) => {
             indoorName: indoorName,
             email: email,
           };
-          fetch(`http://localhost:5000/indoorAdmin`, {
+          fetch(`https://efutsal.onrender.com/indoorAdmin`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -56,7 +56,7 @@ const DisplayRequestedIndoor = (props) => {
         }
       });
 
-    fetch(`http://localhost:5000/indoorAdmin/${indoorName}`, {
+    fetch(`https://efutsal.onrender.com/indoorAdmin/${indoorName}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

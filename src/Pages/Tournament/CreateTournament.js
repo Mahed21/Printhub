@@ -51,7 +51,7 @@ const CreateTournament = (props) => {
             tournamentSecondPrize: secondPrize,
             tournamentStatus: "active",
           };
-          fetch(`http://localhost:5000/indoorAdmin/${_id}`, {
+          fetch(`https://efutsal.onrender.com/indoorAdmin/${_id}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

@@ -40,7 +40,7 @@ const Header = () => {
   }, [user.email]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/indoorAdmin")
+    fetch("https://efutsal.onrender.com/indoorAdmin")
       .then((res) => res.json())
       .then((data) => {
         const getIndoorAdminData = data.data.filter(

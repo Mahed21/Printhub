@@ -20,6 +20,7 @@ import AprovedTeamRequest from "./Pages/AdminDashboard/AprovedTeamRequest";
 import Tournament from "./Pages/Tournament/Tournament";
 
 import TeamList from "./Pages/UserDashBoard/TeamList";
+import ViewAllTeamSquad from "./Pages/Tournament/ViewAllTeamSquad/ViewAllTeamSquad";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/requestedIndoor" element={<RequestedIndoor />} />
             <Route path="/manageOponant" element={<ManageOponant />} />
             <Route path="/tournament" element={<Tournament />} />
+            <Route path="/viewAllTeamSquad" element={<ViewAllTeamSquad />} />
 
             <Route
               path="/aprovedTeamRequest"
