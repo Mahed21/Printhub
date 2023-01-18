@@ -1,12 +1,12 @@
 import { Button } from "bootstrap";
 import React, { useEffect, useState } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import UseAuth from "../Context/UseAuth";
 import Modal from "react-modal";
 import "./Header.css";
 
-import logo from "../../image/logo2.png";
+import logo from "../../image/mainLogo.png";
 const customStyles = {
   content: {
     top: "50%",
@@ -26,6 +26,8 @@ const Header = () => {
   // console.log(user.email);
   const [admin, setAdmin] = useState(false);
   const [adminIndoor, setAdminIndoor] = useState(false);
+  const [manageTournament, setManageTournament] = useState(false);
+  //console.log(user.email);
 
   useEffect(() => {
     fetch("https://efutsal.onrender.com/admin")
@@ -52,18 +54,30 @@ const Header = () => {
         }
       });
   }, [user.email]);
+  useEffect(() => {
+    fetch("https://efutsal.onrender.com/indoorAdmin")
+      .then((res) => res.json())
+      .then((data) => {
+        const getManageIndoor = data.data.filter(
+          (datas) =>
+            user.email === datas.email && datas.tournamentStatus === "active"
+        );
+
+        if (getManageIndoor.length > 0) {
+          setManageTournament(true);
+        }
+      });
+  }, [user.email, manageTournament]);
 
   return (
     <div>
-      <div className="nav-logo">
-        <Navbar.Brand href="/">
-          <img src={logo} alt="eFutsal" />
-        </Navbar.Brand>
-      </div>
-      <div className="header pt-5 pb-5">
-        <div>
-          <nav className="navbar navbar-expand-lg navbar-light">
+      <div className="header pt-2 pb-2">
+        <div className="container">
+          <nav className="navbar fixed-top navbar-expand-lg navbar-light">
             <div className="container-fluid">
+              <Nav.Link class="navbar-brand" to="#">
+                {/* <img src={logo} alt="eFutsal" className="w-25 h-25" /> */}
+              </Nav.Link>
               <button
                 className="navbar-toggler toggle"
                 type="button"
@@ -73,48 +87,46 @@ const Header = () => {
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
-                <span className="navbar-toggler-icon"></span>
+                <span className="navbar-toggler-icon"> </span>
               </button>
               <div
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent"
               >
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                   <li className="nav-item">
-                    <Nav.Link
-                      className="nav-link active ankor"
+                    <NavLink
+                      className="nav-link active ankor me-2"
                       aria-current="page"
-                      href="/"
+                      to="/"
                     >
                       Home
-                    </Nav.Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <Nav.Link
-                      className="nav-link active   ankor"
+                    <NavLink
+                      className="nav-link active ankor me-2"
                       aria-current="page"
-                      href="#"
+                      to="#"
                     >
                       Contact
-                    </Nav.Link>
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <Nav.Link
-                      className="nav-link active   ankor"
+                    <NavLink
+                      className="nav-link active ankor me-2"
                       aria-current="page"
-                      href="/indoorAdd"
+                      to="/indoorAdd"
                     >
                       Add Indoor
-                    </Nav.Link>
+                    </NavLink>
                   </li>
                   {admin ? (
                     <li class="dropdown me-3 mt-2">
                       <li>Admin Dashboard</li>
                       <div class="dropdown-content">
-                        <Nav.Link href="/requestedIndoor">
-                          Manage Indoor
-                        </Nav.Link>
-                        <Nav.Link href="/aprovedTeamRequest">
+                        <Nav.Link to="/requestedIndoor">Manage Indoor</Nav.Link>
+                        <Nav.Link to="/aprovedTeamRequest">
                           Team Request
                         </Nav.Link>
                       </div>
@@ -125,13 +137,13 @@ const Header = () => {
                   {user.emailVerified ? (
                     <div>
                       <li className="nav-item">
-                        <Nav.Link
-                          className="nav-link active   ankor"
+                        <NavLink
+                          className="nav-link active ankor me-2"
                           aria-current="page"
-                          href="/oponant"
+                          to="/oponant"
                         >
                           Find Oponant
-                        </Nav.Link>
+                        </NavLink>
                       </li>
                     </div>
                   ) : (
@@ -139,43 +151,17 @@ const Header = () => {
                   )}
 
                   {user.emailVerified ? (
-                    <div>
-                      <li className="nav-item">
-                        <Nav.Link href="/login">
-                          <button
-                            className="header-btn ps-3 pe-3"
-                            onClick={Logout}
-                          >
-                            Logout
-                          </button>
-                        </Nav.Link>
-                      </li>
-                    </div>
-                  ) : (
-                    <div>
-                      <li className="nav-item">
-                        <Nav.Link
-                          className="nav-link active   ankor"
-                          aria-current="page"
-                          href="/login"
-                        >
-                          Login
-                        </Nav.Link>
-                      </li>
-                    </div>
-                  )}
-                  {user.emailVerified ? (
                     ""
                   ) : (
                     <div>
                       <li className="nav-item">
-                        <Nav.Link
-                          className="nav-link active   ankor"
+                        <NavLink
+                          className="nav-link active ankor me-2"
                           aria-current="page"
-                          href="/register"
+                          to="/register"
                         >
                           Register
-                        </Nav.Link>
+                        </NavLink>
                       </li>
                     </div>
                   )}
@@ -194,6 +180,13 @@ const Header = () => {
                           ) : (
                             ""
                           )}
+                          {manageTournament ? (
+                            <Nav.Link href="/manageTournament">
+                              Manage Tournament
+                            </Nav.Link>
+                          ) : (
+                            ""
+                          )}
                           {adminIndoor ? (
                             <Nav.Link href="/teamList">Team List</Nav.Link>
                           ) : (
@@ -205,6 +198,32 @@ const Header = () => {
                       ""
                     )}
                   </div>
+                  {user.emailVerified ? (
+                    <div>
+                      <li className="nav-item">
+                        <Nav.Link to="/login">
+                          <button
+                            className="header-btn login-text me-2"
+                            onClick={Logout}
+                          >
+                            Logout
+                          </button>
+                        </Nav.Link>
+                      </li>
+                    </div>
+                  ) : (
+                    <div>
+                      <li className="nav-item">
+                        <Nav.Link
+                          className="nav-link active login-text me-2"
+                          aria-current="page"
+                          to="/login"
+                        >
+                          Login
+                        </Nav.Link>
+                      </li>
+                    </div>
+                  )}
                 </ul>
               </div>
             </div>

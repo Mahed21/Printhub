@@ -18,10 +18,13 @@ const TournamentHomePage = () => {
   }, []);
 
   return (
-    <div className="mt-4">
-      {tournament.map((data) => (
-        <DisplayeTournament data={data} key={data._id}></DisplayeTournament>
-      ))}
+    <div className="mt-4 tournamnetHomePage ps-5">
+      <div className="row row-cols-lg-4">
+        {tournament.map((data) => (
+          <DisplayeTournament data={data} key={data._id}></DisplayeTournament>
+        ))}
+      </div>
+      <div className="mt-1 mb-4 d-flex justify-content-end"></div>
     </div>
   );
 };

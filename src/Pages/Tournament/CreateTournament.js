@@ -24,47 +24,35 @@ const CreateTournament = (props) => {
 
   const createTournamnent = (e) => {
     e.preventDefault();
-    const formData = new FormData();
 
-    formData.append("image", banner);
-    const url = `https://api.imgbb.com/1/upload?key=6e348ee5df7e5ac0e70738f8b8b2f9f0`;
-    fetch(url, {
-      method: "POST",
-      body: formData,
+    const updateObject = {
+      tournamentName: nameofTournmanet,
+      tournamnetStart: startDate,
+      tournamnetfee: fees,
+
+      tournamentRulesOne: rules,
+      tournamentRulesTwo: rules1,
+      tournamentRulesThree: rules2,
+      tournamentRulesFour: rules3,
+      tournamentRulesFive: rules4,
+      tournamentRulesSix: rules5,
+      tournamentFirstPrize: firstPrize,
+      tournamentSecondPrize: secondPrize,
+      tournamentStatus: "active",
+    };
+    fetch(`https://efutsal.onrender.com/indoorAdmin/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateObject),
     })
       .then((res) => res.json())
-      .then((result) => {
-        if (result.success) {
-          const img = result.data.url;
-          const updateObject = {
-            tournamentName: nameofTournmanet,
-            tournamnetStart: startDate,
-            tournamnetfee: fees,
-            tournamentBanner: img,
-            tournamentRulesOne: rules,
-            tournamentRulesTwo: rules1,
-            tournamentRulesThree: rules2,
-            tournamentRulesFour: rules3,
-            tournamentRulesFive: rules4,
-            tournamentRulesSix: rules5,
-            tournamentFirstPrize: firstPrize,
-            tournamentSecondPrize: secondPrize,
-            tournamentStatus: "active",
-          };
-          fetch(`https://efutsal.onrender.com/indoorAdmin/${_id}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(updateObject),
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.status === "success") {
-                alert("Successfully Updated");
-                navigate("/");
-              }
-            });
+      .then((data) => {
+        if (data.status === "success") {
+          console.log("hii");
+          alert("Successfully Updated");
+          navigate("/");
         }
       });
   };

@@ -15,7 +15,7 @@ import {
 
 const Footer = () => {
   return (
-    <div>
+    <div className="mt-5">
       {" "}
       <div className="footer pt-5 pb-5">
         <div className="container">

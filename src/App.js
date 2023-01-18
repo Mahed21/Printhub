@@ -22,10 +22,14 @@ import Tournament from "./Pages/Tournament/Tournament";
 import TeamList from "./Pages/UserDashBoard/TeamList";
 import ViewAllTeamSquad from "./Pages/Tournament/ViewAllTeamSquad/ViewAllTeamSquad";
 
+import ModalPages from "./Pages/Modal/ModalPages";
+import ViewAllIndoor from "./Pages/ViewAllIndoor/ViewAllIndoor";
+import ManageTournament from "./Pages/Tournament/ManageTournament/ManageTournament";
+
 function App() {
   return (
-    <div className="app pt-5 ">
-      <div className="container">
+    <div className="app">
+      <div>
         <AuthProvider>
           <Header></Header>
           <Routes>
@@ -41,12 +45,15 @@ function App() {
             <Route path="/manageOponant" element={<ManageOponant />} />
             <Route path="/tournament" element={<Tournament />} />
             <Route path="/viewAllTeamSquad" element={<ViewAllTeamSquad />} />
+            <Route path="/viewAllIndoor" element={<ViewAllIndoor />} />
+            <Route path="/manageTournament" element={<ManageTournament />} />
 
             <Route
               path="/aprovedTeamRequest"
               element={<AprovedTeamRequest />}
             />
             <Route path="/TeamList" element={<TeamList />} />
+            <Route path="/modal" element={<ModalPages />} />
           </Routes>
           <Footer></Footer>
         </AuthProvider>

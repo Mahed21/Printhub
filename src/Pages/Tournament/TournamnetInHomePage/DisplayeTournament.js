@@ -131,52 +131,63 @@ const DisplayeTournament = (props) => {
         }
       });
   };
+  const downloadRoles = () => {
+    const doc = new jsPDF();
+
+    doc.text(`Tournament Rules`, 10, 10);
+    doc.text(`Team Name ${tournamentRulesOne}`, 10, 20);
+    doc.text(`1: ${tournamentRulesTwo}`, 10, 30);
+    doc.text(`2: ${tournamentRulesTwo}`, 10, 40);
+    doc.text(`3: ${tournamentRulesThree}`, 10, 50);
+    doc.text(`4: ${tournamentRulesFour}`, 10, 60);
+    doc.text(`5: ${tournamentRulesFive}`, 10, 70);
+    doc.save("eFutsalRoles.pdf");
+  };
 
   const ViewAllTeam = (email) => {
     navigate("/viewAllTeamSquad", { state: { email: email } });
   };
 
   return (
-    <div>
-      <div className="card mb-3 display-tournamnet container">
-        <div className="row g-0 ">
-          <div className="col-md-6">
-            <img
-              src={tournamentBanner}
-              alt=""
-              class="img-fluid rounded-start h-100"
-            />
-          </div>
+    <div className=" pt-5 pb-5 ">
+      <div className="card mb-3 display-tournamnet rounded container">
+        {/* <div className="">
+          <img
+            src={tournamentBanner}
+            alt=""
+            class="img-fluid h-100  w-100 rounded"
+          />
+        </div> */}
 
-          <div className="col-md-6">
-            <div className="card-body">
-              <h5 className="mb-2">
-                Register your team in {tournamentName} at {indoorName}
-              </h5>
-              <h5 className="mb-2">{tournamentName}</h5>
-              <h5 className="mb-2 ">
-                Start Date:
-                <span className=" dispTournament-text">{tournamnetStart}</span>
-              </h5>
+        <div className="">
+          <div className="card-body">
+            <h5 className="mb-2 header-text-crTournament">
+              {tournamentName} at {indoorName}
+            </h5>
+            <h5 className="mb-2 header-text-crTournament ">{tournamentName}</h5>
+            <h5 className="mb-2 ">
+              ⚪Start Date:
+              <span className=" dispTournament-text">{tournamnetStart}</span>
+            </h5>
 
-              <h5>
-                Registartion Fees :
-                <span className="dispTournament-text">{tournamnetfee} TK</span>
-              </h5>
-              <h5>
-                First Prize:
-                <span className="dispTournament-text">
-                  {tournamentFirstPrize} TK
-                </span>
-              </h5>
-              <h5>
-                second Prize:
-                <span className="dispTournament-text">
-                  {tournamentSecondPrize} TK
-                </span>
-              </h5>
+            <h5>
+              ⚪Registartion Fees :
+              <span className="dispTournament-text">{tournamnetfee} TK</span>
+            </h5>
+            <h5>
+              ⚪First Prize:
+              <span className="dispTournament-text">
+                {tournamentFirstPrize} TK
+              </span>
+            </h5>
+            <h5>
+              ⚪ second Prize:
+              <span className="dispTournament-text">
+                {tournamentSecondPrize} TK
+              </span>
+            </h5>
 
-              <div>
+            {/* <div>
                 <h5>Tournament Rules:</h5>
                 <h5 className="dispTournament-text">1: {tournamentRulesOne}</h5>
                 <h5 className="dispTournament-text">2: {tournamentRulesTwo}</h5>
@@ -189,25 +200,32 @@ const DisplayeTournament = (props) => {
                 <h5 className="dispTournament-text">
                   5: {tournamentRulesFive}
                 </h5>
-              </div>
+              </div> */}
 
-              <div className="d-flex justify-content-end">
-                <div>
-                  <button
-                    className="tournament-btn ps-4 pe-4 pt-2 pb-2 mt-3 me-3"
-                    onClick={openModal}
-                  >
-                    Register Your Team
-                  </button>
-                </div>
-                <div>
-                  <button
-                    className="tournament-btn ps-4 pe-4 pt-2 pb-2 mt-3"
-                    onClick={() => ViewAllTeam(email)}
-                  >
-                    View All Registerd Team
-                  </button>
-                </div>
+            <div>
+              <div>
+                <button
+                  className="indoorlist-btn ps-4 pe-4 pt-2 pb-2 mt-3 me-3 w-100"
+                  onClick={downloadRoles}
+                >
+                  Download All Rules
+                </button>
+              </div>
+              <div>
+                <button
+                  className="indoorlist-btn  ps-4 pe-4 pt-2 pb-2 mt-3 me-3 w-100"
+                  onClick={openModal}
+                >
+                  Register Your Team
+                </button>
+              </div>
+              <div>
+                <button
+                  className="indoorlist-btn  ps-4 pe-4 pt-2 pb-2 mt-3 w-100"
+                  onClick={() => ViewAllTeam(email)}
+                >
+                  View All Registerd Team
+                </button>
               </div>
             </div>
           </div>

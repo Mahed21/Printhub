@@ -1,6 +1,10 @@
 .footer {
-  background-color: #030303;
+  background-image: url("../../image/footer/footer8.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: white;
+  font-weight: bolder;
 }
 .icon {
   color: white;

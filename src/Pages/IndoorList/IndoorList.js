@@ -23,8 +23,9 @@ const IndoorList = (props) => {
   };
 
   return (
-    <div className="col-lg-6">
-      <div className="card mb-3  card_design">
+    <div>
+      <div className="mb-5 booking-card-info ps-2 pe-2 pb-3 pt-2">
+        {/* <div className="card mb-3  card_design">
         <div className="row g-0">
           <div className="col-md-4">
             <img
@@ -37,20 +38,6 @@ const IndoorList = (props) => {
             <div className="card-body">
               <h5 className="card-title">{indoorName}</h5>
               <h5 className="card-title">Location: {address}</h5>
-
-              {/* <div class="mapouter">
-                <div class="gmap_canvas">
-                  <iframe
-                    width="100%"
-                    height="100vh"
-                    src="https://maps.google.com/maps?q=VV96+CJQ,%20Pirozpur%20baypass,%203100&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                    frameborder="0"
-                    scrolling="no"
-                    marginheight="0"
-                    marginwidth="0"
-                  ></iframe>
-                </div>
-              </div> */}
               <div className="mt-2 mb-2 datepicker">
                 <DatePicker
                   style={{
@@ -65,6 +52,40 @@ const IndoorList = (props) => {
               <button
                 onClick={() => moveBookingDetails(indoorName)}
                 className="btn btn-primary mt-1"
+              >
+                Check Availability
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> */}
+
+        <div>
+          <img
+            src={image}
+            className="img-fluid rounded-start card-image"
+            alt="..."
+          />
+        </div>
+        <div className="mt-3">
+          <div>
+            <h5 className="card-title">{indoorName}</h5>
+            <h5 className="card-title">Location: {address}</h5>
+            <div className="mt-2 mb-2 datepicker">
+              <DatePicker
+                style={{
+                  cursor: "pointer",
+                  fontSize: "17px",
+                  border: "2px solid #0D6EFD",
+                  //backgroundColor: "#0D6EFD",
+                }}
+                onChange={handleDate}
+              ></DatePicker>
+            </div>
+            <div className="d-flex align-items-end">
+              <button
+                onClick={() => moveBookingDetails(indoorName)}
+                className="indoorlist-btn mt-1 p-2 w-100"
               >
                 Check Availability
               </button>

@@ -1,27 +1,35 @@
 .header {
-  background-color: black;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  font-family: monospace;
+
+  font-weight: 400;
+  margin-bottom: 5%;
+}
+.navbar {
+  background-color: white;
 }
 .ankor {
-  color: white !important;
+  color: black !important;
   font-size: 18px;
 }
 #basic-nav-dropdown {
-  color: white !important;
+  color: black !important;
   font-size: 18px;
+  font-size: 0.75em;
 }
 .ankor:hover {
-  background-color: rgb(241, 188, 49);
+  color: #fcc55a !important;
 }
 #basic-nav-dropdown:hover {
   background-color: rgb(241, 188, 49);
 }
 .toggle {
-  background-color: white;
+  background-color: black;
 }
 .header-btn {
-  color: white;
+  color: black;
+  background-color: white;
+  border: none;
+  font-size: 18px;
 }
 .availableBtn {
   background-color: #1f2029;
@@ -59,7 +67,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: white;
   min-width: 250px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   padding: 12px 16px;
@@ -71,11 +79,24 @@
 }
 .dropdown-content :hover {
   background-color: rgb(241, 188, 49);
+  color: white;
 }
 .dropdown {
-  color: white;
+  color: black;
   font-size: 18px;
 }
 .nav-logo {
   background-color: #e5eaed;
+}
+.nav-logo h5 {
+  font-family: "Courier New", Courier, monospace;
+  font-size: x-large;
+  font-weight: bold;
+}
+.header-logo {
+  width: 10%;
+}
+.login-text {
+  color: rgb(130, 127, 127);
+  background-color: white;
 }

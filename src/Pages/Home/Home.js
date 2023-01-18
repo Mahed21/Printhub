@@ -6,6 +6,11 @@ import Marquee from "react-fast-marquee";
 import IndoorList from "../IndoorList/IndoorList";
 import Modal from "react-modal";
 import TournamentHomePage from "../Tournament/TournamnetInHomePage/TournamentHomePage";
+import bannerImage from "../../image/banner/bannerImage.png";
+import footballImage from "../../image/banner/football.png";
+import challangeBanner from "../../image/tour3.png";
+import { useSpring, animated } from "react-spring";
+
 const customStyles = {
   content: {
     top: "50%",
@@ -20,6 +25,44 @@ const customStyles = {
 };
 
 const Home = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [startAnimation, setStartAnimation] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const leftAnimationProps = useSpring({
+    from: { transform: "translateX(-100%)" },
+    to: { transform: "translateX(90%)" },
+    config: { duration: 2000 },
+    reverse: !isVisible,
+    delay: 1000,
+    immediate: !startAnimation,
+  });
+  const rightAnimationProps = useSpring({
+    from: { transform: "translateX(100%)" },
+    to: { transform: "translateX(0%)" },
+    config: { duration: 2000 },
+    reverse: !isVisible,
+    delay: 1000,
+    immediate: !startAnimation,
+  });
+  useEffect(() => {
+    setStartAnimation(true);
+    setIsVisible(true);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  useEffect(() => {
+    if (isScrolled) {
+      setIsVisible(true);
+    }
+  }, [isScrolled]);
+
+  const handleScroll = () => {
+    if (window.pageYOffset > 200) {
+      setIsScrolled(true);
+    }
+  };
+
   const [modalIsOpen, setIsOpen] = useState(false);
   const [availableDay, setAvailableDay] = useState("");
   const [availableTime, setAvailableTime] = useState("");
@@ -33,7 +76,7 @@ const Home = () => {
   const [date, setDate] = useState("");
   const [indoorList, setIndoorList] = useState([]);
   useEffect(() => {
-    fetch("https://efutsal.onrender.com/indoor")
+    fetch("http://localhost:5000/indoor")
       .then((res) => res.json())
       .then((data) => {
         const fetchIndoorList = data.data.filter(
@@ -93,51 +136,97 @@ const Home = () => {
         }
       });
   };
+  const viewAllIndoor = () => {
+    navigate("/viewAllIndoor");
+  };
 
   return (
     <div className="home">
       {/* banner */}
-      <div className="home_banner"></div>
+
+      <div className="home_banner d-flex row">
+        <div className="col-lg-4 footballImage">
+          <animated.div style={leftAnimationProps}>
+            <img src={footballImage} alt="" className="mt-3" />
+          </animated.div>
+        </div>
+        <div className="col-lg-8 playerImage">
+          <animated.div style={rightAnimationProps}>
+            <img src={bannerImage} alt="" className=" w-75 mt-5 " />
+          </animated.div>
+        </div>
+      </div>
       {/* tournament */}
-      <TournamentHomePage></TournamentHomePage>
+
       {/* end tournament */}
       {/* indoor in sylhet */}
+      <div className=" row opponant-find p-5">
+        <div className="col-lg-5">
+          <div className="d-flex justify-content-center">
+            <img src={challangeBanner} alt="" className="img-fluid" />
+          </div>
+        </div>
+        <div className="col-lg-7 d-flex  justify-content-center align-items-center">
+          <div
+            className="
+        "
+          >
+            <div>
+              <div className="oponant-find-text me-5">
+                <h1>READY FOR BATTLE !</h1>
+                <h5 className="mb-1">
+                  1. Give a challenge to find an opponent.
+                </h5>
+                <h5 className="mb-1">2. Wait for response.</h5>
+                <h5 className="mb-1">3. Choose a suitable opponant</h5>
+                <h5 className="mb-5">4. Lets Play.</h5>
+                <h3 className="mt-3 me-3 registerbtnText">
+                  {" "}
+                  Register Your Team Now
+                </h3>
+                <div className="mt-3 mb-3 ">
+                  <button
+                    className="opponant-find-btn mt-1 p-2 mb-4 ps-5 pe-5 pt-2 pb-2 rounded"
+                    onClick={openModal}
+                  >
+                    Add Your Team
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-5 mb-4">
+        <h3 className="indoorInSylhet mb-5 pt-3 pb-3 text-center">
+          Running Tournament
+        </h3>
+      </div>
+      <TournamentHomePage></TournamentHomePage>
 
       <div className="mt-5 mb-4">
-        {/* <div className="title">
-          <Marquee
-            direction="right"
-            speed={100}
-            pauseOnClick={true}
-            className="marquee mb-5"
-          >
-            <h3>Indoor in Sylhet</h3>
-          </Marquee> */}
         <h3 className="indoorInSylhet mb-5 pt-3 pb-3 text-center">
           Indoor In Sylhet
         </h3>
       </div>
 
       {/* all indoors */}
-      <div className="row">
-        {indoorList.map((list) => (
-          <IndoorList list={list} key={list._id}></IndoorList>
-        ))}
-      </div>
-
-      <div className="d-flex justify-content-evenly registerTeambtn p-5 mt-5">
-        <h3 className="mt-3 me-3 registerbtnText">
-          {" "}
-          Register your team for a friendly match
-        </h3>
-        <div className="mt-3 mb-3">
-          <button className="btn btn-primary mt-1 p-2 mb-4" onClick={openModal}>
-            Add Your Team
+      <div className="container ">
+        <div className="row row-cols-lg-4">
+          {indoorList.map((list) => (
+            <IndoorList list={list} key={list._id}></IndoorList>
+          ))}
+        </div>
+        <div className="mt-1 mb-4 d-flex justify-content-end">
+          <button
+            className="opponant-find-btn pt-2 pb-2 ps-5 pe-5 w-100"
+            onClick={viewAllIndoor}
+          >
+            View All Indoor
           </button>
         </div>
       </div>
 
-      {/* modal code  */}
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

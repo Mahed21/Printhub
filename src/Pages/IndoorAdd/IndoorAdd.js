@@ -43,6 +43,7 @@ const IndoorAdd = () => {
             .then((data) => {
               if (data.status === "success") {
                 alert("request of adding indoor has been submitted");
+
                 setName("");
                 navigate("/");
               } else {
@@ -78,7 +79,14 @@ const IndoorAdd = () => {
           />
           <br />
           <br />
-          <button className="btn btn-primary" onClick={PostIndoor}>
+          <button
+            className="btn btn-primary"
+            onClick={PostIndoor}
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
             Submit
           </button>
         </form>

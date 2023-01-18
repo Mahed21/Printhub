@@ -18,7 +18,7 @@ const ManageOponant = () => {
         const oponantData = data.data.filter(
           (value) => user.email === value.email
         );
-        console.log(oponantData);
+        //console.log(oponantData);
         setOponantInfo(oponantData);
       });
   });
