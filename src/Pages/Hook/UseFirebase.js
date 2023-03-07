@@ -91,7 +91,7 @@ const UseFirebase = () => {
     const auth = getAuth();
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
+        setUser({});
       })
       .catch((error) => {
         // An error happened.

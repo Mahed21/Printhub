@@ -1,0 +1,98 @@
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #0062cc;
+}
+.register_for_ranking {
+  min-height: 60vh;
+}
+/* input field */
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #007bff;
+}
+
+.form-control:focus + .border {
+  animation: border-animation 1s forwards;
+}
+
+.border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: #007bff;
+  transition: width 0.3s ease-in-out;
+}
+
+.border:nth-child(1) {
+  left: 25%;
+}
+
+.border:nth-child(2) {
+  left: 50%;
+}
+
+.border:nth-child(3) {
+  left: 75%;
+}
+
+@keyframes border-animation {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}

@@ -9,6 +9,7 @@ const Login = () => {
   const { googleSignIn, user, emailPassLogIn } = UseAuth();
   const [email, setEmail] = useState({});
   const [password, setPassword] = useState({});
+  //console.log(user.email);
   if (user.email) {
     navigate("/");
   }

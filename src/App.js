@@ -25,6 +25,8 @@ import ViewAllTeamSquad from "./Pages/Tournament/ViewAllTeamSquad/ViewAllTeamSqu
 import ModalPages from "./Pages/Modal/ModalPages";
 import ViewAllIndoor from "./Pages/ViewAllIndoor/ViewAllIndoor";
 import ManageTournament from "./Pages/Tournament/ManageTournament/ManageTournament";
+import SelectIndoor from "./Pages/Ranking/SelectIndoor";
+import RegisterForRanking from "./Pages/Ranking/RegisterForRanking";
 
 function App() {
   return (
@@ -47,6 +49,11 @@ function App() {
             <Route path="/viewAllTeamSquad" element={<ViewAllTeamSquad />} />
             <Route path="/viewAllIndoor" element={<ViewAllIndoor />} />
             <Route path="/manageTournament" element={<ManageTournament />} />
+            <Route path="/selectIndoor" element={<SelectIndoor />} />
+            <Route
+              path="/registerForRanking"
+              element={<RegisterForRanking />}
+            />
 
             <Route
               path="/aprovedTeamRequest"

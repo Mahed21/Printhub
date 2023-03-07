@@ -13,7 +13,7 @@ const TournamentHomePage = () => {
           (datas) => datas.tournamentStatus === "active"
         );
         setTournament(fetchTournamnet);
-        console.log(fetchTournamnet);
+        //console.log(fetchTournamnet);
       });
   }, []);
 

@@ -139,6 +139,9 @@ const Home = () => {
   const viewAllIndoor = () => {
     navigate("/viewAllIndoor");
   };
+  const SelectIndoor = () => {
+    navigate("/selectIndoor");
+  };
 
   return (
     <div className="home">
@@ -224,6 +227,44 @@ const Home = () => {
           >
             View All Indoor
           </button>
+        </div>
+      </div>
+      {/* Ranking */}
+      <div className=" row opponant-find p-5">
+        <div className="col-lg-5">
+          <div className="d-flex justify-content-center">
+            <img src={challangeBanner} alt="" className="img-fluid" />
+          </div>
+        </div>
+        <div className="col-lg-7 d-flex  justify-content-center align-items-center">
+          <div
+            className="
+        "
+          >
+            <div>
+              <div className="oponant-find-text me-5">
+                <h3>Register Your Name For Ranking!</h3>
+                <h5 className="mb-1">
+                  1. Register Your name If you love to played in indoor.
+                </h5>
+                <h5 className="mb-1">
+                  2. Indoor Manager can keep track of your goals and matches.
+                </h5>
+                <h5 className="mb-1">
+                  3. The ranking can be sorted by highest scoring goal.
+                </h5>
+
+                <div className="mt-3 mb-3 ">
+                  <button
+                    className="opponant-find-btn mt-1 p-2 mb-4 ps-5 pe-5 pt-2 pb-2 rounded"
+                    onClick={SelectIndoor}
+                  >
+                    Register Your name
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

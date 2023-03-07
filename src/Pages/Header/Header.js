@@ -198,29 +198,33 @@ const Header = () => {
                       ""
                     )}
                   </div>
-                  {user.emailVerified ? (
+                  {user.email ? (
                     <div>
                       <li className="nav-item">
-                        <Nav.Link to="/login">
+                        <NavLink
+                          className="nav-link active ankor me-2"
+                          aria-current="page"
+                          to="/login"
+                        >
                           <button
                             className="header-btn login-text me-2"
                             onClick={Logout}
                           >
                             Logout
                           </button>
-                        </Nav.Link>
+                        </NavLink>
                       </li>
                     </div>
                   ) : (
                     <div>
                       <li className="nav-item">
-                        <Nav.Link
-                          className="nav-link active login-text me-2"
+                        <NavLink
+                          className="nav-link active ankor me-2"
                           aria-current="page"
                           to="/login"
                         >
                           Login
-                        </Nav.Link>
+                        </NavLink>
                       </li>
                     </div>
                   )}
