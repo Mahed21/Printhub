@@ -71,12 +71,12 @@ const Header = () => {
 
   return (
     <div>
-      <div className="header pt-2 pb-2">
+      {/* <div className="header pt-2 pb-2">
         <div className="container">
           <nav className="navbar fixed-top navbar-expand-lg navbar-light">
             <div className="container-fluid">
               <Nav.Link class="navbar-brand" to="#">
-                {/* <img src={logo} alt="eFutsal" className="w-25 h-25" /> */}
+             
               </Nav.Link>
               <button
                 className="navbar-toggler toggle"
@@ -233,7 +233,154 @@ const Header = () => {
             </div>
           </nav>
         </div>
-      </div>
+      </div> */}
+
+      <nav class="navbar navbar-expand-md navbar-light fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            eFutsal
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link active ankor me-2"
+                  aria-current="page"
+                  to="/"
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link active ankor me-2"
+                  aria-current="page"
+                  to="#"
+                >
+                  Contact
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  className="nav-link active ankor me-2"
+                  aria-current="page"
+                  to="/indoorAdd"
+                >
+                  Add Indoor
+                </NavLink>
+              </li>
+              {admin ? (
+                <li class="dropdown me-3 mt-2">
+                  <li>Admin Dashboard</li>
+                  <div class="dropdown-content">
+                    <Nav.Link to="/requestedIndoor">Manage Indoor</Nav.Link>
+                    <Nav.Link to="/aprovedTeamRequest">Team Request</Nav.Link>
+                  </div>
+                </li>
+              ) : (
+                ""
+              )}
+              {user.emailVerified ? (
+                <div>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link active ankor me-2"
+                      aria-current="page"
+                      to="/oponant"
+                    >
+                      Find Oponant
+                    </NavLink>
+                  </li>
+                </div>
+              ) : (
+                ""
+              )}
+
+              {user.emailVerified ? (
+                ""
+              ) : (
+                <div>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link active ankor me-2"
+                      aria-current="page"
+                      to="/register"
+                    >
+                      Register
+                    </NavLink>
+                  </li>
+                </div>
+              )}
+              <div>
+                {user.emailVerified ? (
+                  <li class="dropdown me-3 mt-2">
+                    <li>Dashboard</li>
+                    <div class="dropdown-content">
+                      <Nav.Link href="/manageOponant">Manage Oponant</Nav.Link>
+                      {adminIndoor ? (
+                        <Nav.Link href="/tournament">
+                          Create Tournament
+                        </Nav.Link>
+                      ) : (
+                        ""
+                      )}
+                      {manageTournament ? (
+                        <Nav.Link href="/manageTournament">
+                          Manage Tournament
+                        </Nav.Link>
+                      ) : (
+                        ""
+                      )}
+                      {adminIndoor ? (
+                        <Nav.Link href="/teamList">Team List</Nav.Link>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </li>
+                ) : (
+                  ""
+                )}
+              </div>
+              {user.email ? (
+                <div>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link active ankor me-2"
+                      aria-current="page"
+                      to="/login"
+                    >
+                      <button className="header-btn  me-2" onClick={Logout}>
+                        Logout
+                      </button>
+                    </NavLink>
+                  </li>
+                </div>
+              ) : (
+                <div>
+                  <li className="nav-item">
+                    <NavLink
+                      className="nav-link active ankor me-2"
+                      aria-current="page"
+                      to="/login"
+                    >
+                      Login
+                    </NavLink>
+                  </li>
+                </div>
+              )}
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
   );
 };
