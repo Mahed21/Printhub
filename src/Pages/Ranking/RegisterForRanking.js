@@ -18,6 +18,7 @@ const RegisterForRanking = () => {
       indoorNameForRanking: indoorName,
       score: 0,
     };
+
     fetch(`http://localhost:5000/ranking`, {
       method: "POST",
       headers: {

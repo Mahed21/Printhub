@@ -1,8 +1,5 @@
 .header {
-  font-family: monospace;
-
-  font-weight: 400;
-  margin-bottom: 5%;
+  margin-bottom: 100px;
 }
 /* .navbar {
   background-color: white;
@@ -26,7 +23,6 @@
 .toggle {
   background-color: black;
 }
-
 .header-btn {
   background-color: #ffa800;
   color: white;

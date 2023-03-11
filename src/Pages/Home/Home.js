@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UseAuth from "../Context/UseAuth";
 import Marquee from "react-fast-marquee";
 import IndoorList from "../IndoorList/IndoorList";
@@ -142,9 +142,12 @@ const Home = () => {
   const SelectIndoor = () => {
     navigate("/selectIndoor");
   };
-
+  const selectIndoorForRank = (e) => {
+    e.preventDefault();
+    navigate("/selectIndoorforRanking");
+  };
   return (
-    <div className="home">
+    <div className="home mt-5">
       {/* banner */}
 
       <div className="home_banner d-flex row">
@@ -265,6 +268,15 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* show ranking */}
+      <div class="show_ranking_card mt-4 pt-3 pb-3">
+        <div class="show_ranking_button-container">
+          <button class="show_ranking_button" onClick={selectIndoorForRank}>
+            Click Here see the ranking
+          </button>
         </div>
       </div>
 

@@ -27,6 +27,8 @@ import ViewAllIndoor from "./Pages/ViewAllIndoor/ViewAllIndoor";
 import ManageTournament from "./Pages/Tournament/ManageTournament/ManageTournament";
 import SelectIndoor from "./Pages/Ranking/SelectIndoor";
 import RegisterForRanking from "./Pages/Ranking/RegisterForRanking";
+import SelectIndoorForSelectRank from "./Pages/Ranking/DisplayRanking/SelectIndoorForSelectRank";
+import FetchRankingByIndoor from "./Pages/Ranking/DisplayRanking/FetchRankingByIndoor";
 
 function App() {
   return (
@@ -50,6 +52,14 @@ function App() {
             <Route path="/viewAllIndoor" element={<ViewAllIndoor />} />
             <Route path="/manageTournament" element={<ManageTournament />} />
             <Route path="/selectIndoor" element={<SelectIndoor />} />
+            <Route
+              path="/FetchRankingByIndoor"
+              element={<FetchRankingByIndoor />}
+            />
+            <Route
+              path="/selectIndoorforRanking"
+              element={<SelectIndoorForSelectRank />}
+            />
             <Route
               path="/registerForRanking"
               element={<RegisterForRanking />}

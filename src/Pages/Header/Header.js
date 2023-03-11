@@ -70,7 +70,7 @@ const Header = () => {
   }, [user.email, manageTournament]);
 
   return (
-    <div>
+    <div className="header">
       {/* <div className="header pt-2 pb-2">
         <div className="container">
           <nav className="navbar fixed-top navbar-expand-lg navbar-light">
