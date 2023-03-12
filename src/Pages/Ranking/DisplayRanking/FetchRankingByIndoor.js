@@ -20,12 +20,13 @@ const FetchRankingByIndoor = () => {
   return (
     <div className="">
       <div className="container">
-        <h1>Ranking for indoor {indoorName}</h1>
+        <h5 className="text-center">Ranking for indoor {indoorName}</h5>
         <table class="table table-striped table-hover table-bordered">
           <thead>
             <tr>
               <th>Player Name</th>
               <th>Player Email</th>
+              <th>total Match</th>
               <th>Score</th>
             </tr>
           </thead>

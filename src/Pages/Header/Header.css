@@ -26,9 +26,10 @@
 .header-btn {
   background-color: #ffa800;
   color: white;
+  text-decoration: none;
   border: 2px solid white;
 }
-.header-btn {
+.header-btn:hover {
   background-color: #18191b;
 }
 

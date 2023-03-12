@@ -344,6 +344,13 @@ const Header = () => {
                       ) : (
                         ""
                       )}
+                      {adminIndoor ? (
+                        <Nav.Link href="/updatePlayerInfoForRanking">
+                          Update Player Score
+                        </Nav.Link>
+                      ) : (
+                        ""
+                      )}
                     </div>
                   </li>
                 ) : (
@@ -358,7 +365,10 @@ const Header = () => {
                       aria-current="page"
                       to="/login"
                     >
-                      <button className="header-btn  me-2" onClick={Logout}>
+                      <button
+                        className="header-btn  me-2 ps-3 pe-3"
+                        onClick={Logout}
+                      >
                         Logout
                       </button>
                     </NavLink>

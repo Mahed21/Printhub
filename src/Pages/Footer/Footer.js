@@ -96,12 +96,6 @@ const Footer = () => {
           </p>
         </div>
       </div>
-      <footer>
-        <h3>Football Team Name</h3>
-        <p>Address, City, State</p>
-        <p>Phone: (123) 456-7890</p>
-        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
-      </footer>
     </div>
   );
 };

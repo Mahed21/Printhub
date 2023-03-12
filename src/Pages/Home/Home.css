@@ -27,11 +27,11 @@
   font-size: xx-large;
 }
 
-button {
+/* button {
   background-color: black;
   padding: 0;
   margin: 0;
-}
+} */
 
 .createTurnament {
   background: rgba(255, 255, 255, 0.5);
