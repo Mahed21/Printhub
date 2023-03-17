@@ -7,7 +7,7 @@ const FetchRankingByIndoor = () => {
   const location = useLocation();
   const { indoorName } = location.state;
   useEffect(() => {
-    fetch("http://localhost:5000/ranking")
+    fetch("https://efutsal.onrender.com/ranking")
       .then((res) => res.json())
       .then((data) => {
         const fetchIndoorList = data.data.filter(
@@ -18,9 +18,9 @@ const FetchRankingByIndoor = () => {
       });
   }, [indoorName]);
   return (
-    <div className="">
+    <div className="select_indoor_parent">
       <div className="container">
-        <h5 className="text-center">Ranking for indoor {indoorName}</h5>
+        <h4 className="text-center mb-5">Ranking for indoor {indoorName}</h4>
         <table class="table table-striped table-hover table-bordered">
           <thead>
             <tr>

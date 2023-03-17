@@ -64,7 +64,9 @@
 .dropdown {
   position: relative;
   display: inline-block;
-  color: white;
+  color: white !important;
+  font-weight: bolder;
+  font-size: 22px;
 }
 
 .dropdown-content {
@@ -116,4 +118,8 @@
   100% {
     transform: scale(1);
   }
+}
+.efutsal_text {
+  color: white;
+  font-weight: bolder;
 }

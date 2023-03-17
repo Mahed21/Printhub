@@ -16,7 +16,7 @@ const SelectIndoor = () => {
       });
   }, []);
   return (
-    <div className="">
+    <div className="select_indoor_parent">
       <div className="container">
         <table class="table table-striped table-hover table-bordered">
           <thead>

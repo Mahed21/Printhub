@@ -24,11 +24,13 @@ const UpdatePlayerInfo = () => {
 
   const updatePlayerScore = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/ranking")
+    fetch("https://efutsal.onrender.com/ranking")
       .then((res) => res.json())
       .then((data) => {
         const getPreviousRanking = data.data.filter(
-          (datas) => searchEmail === datas.playerEmail
+          (datas) =>
+            searchEmail === datas.playerEmail &&
+            datas.indoorNameForRanking === indorName
         );
         if (getPreviousRanking.length === 0) {
           setFailResult(
@@ -40,13 +42,16 @@ const UpdatePlayerInfo = () => {
             totalMatch: getPreviousRanking[0].totalMatch + 1,
             score: getPreviousRanking[0].score + parseInt(updatedScore),
           };
-          fetch(`http://localhost:5000/ranking/${getPreviousRanking[0]._id}`, {
-            method: "PUT",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(updatePlayerPro),
-          })
+          fetch(
+            `https://efutsal.onrender.com/ranking/${getPreviousRanking[0]._id}`,
+            {
+              method: "PUT",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(updatePlayerPro),
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (data.status === "success") {

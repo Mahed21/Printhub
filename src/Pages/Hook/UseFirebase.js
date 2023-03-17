@@ -39,9 +39,9 @@ const UseFirebase = () => {
       .then((result) => {
         // console.log(result.user.emailVerified);
         setUser(result.user);
-        emailVerification();
+        // emailVerification();
 
-        navigate("/spinner");
+        navigate("/");
       })
       .catch((error) => {
         setError(error.message);
@@ -78,13 +78,13 @@ const UseFirebase = () => {
   };
 
   //send email as verification
-  const emailVerification = () => {
-    sendEmailVerification(auth.currentUser).then((result) => {
-      console.log(result);
-      // Email verification sent!
-      // ...
-    });
-  };
+  // const emailVerification = () => {
+  //   sendEmailVerification(auth.currentUser).then((result) => {
+  //     console.log(result);
+  //     // Email verification sent!
+  //     // ...
+  //   });
+  // };
 
   //logout
   const Logout = () => {

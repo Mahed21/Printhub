@@ -10,7 +10,7 @@ const RequestedIndoor = () => {
       .then((data) => setIndoorList(data.data));
   });
   return (
-    <div className="row row-cols-lg-3 mt-3 mb-4">
+    <div className="row row-cols-lg-3 mt-3 mb-4 container">
       {indoorList.map((data) => (
         <DisplayRequestedIndoor
           data={data}

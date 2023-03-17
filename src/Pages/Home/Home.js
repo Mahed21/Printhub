@@ -76,7 +76,7 @@ const Home = () => {
   const [date, setDate] = useState("");
   const [indoorList, setIndoorList] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/indoor")
+    fetch("https://efutsal.onrender.com/indoor")
       .then((res) => res.json())
       .then((data) => {
         const fetchIndoorList = data.data.filter(
@@ -217,21 +217,21 @@ const Home = () => {
       </div>
 
       {/* all indoors */}
-      <div className="container ">
+      <div class="container">
+        <div class="row">
+          {indoorList.map((list) => (
+            <IndoorList list={list} key={list._id}></IndoorList>
+          ))}
+        </div>
+      </div>
+
+      {/* <div className="container ">
         <div className="row row-cols-lg-4">
           {indoorList.map((list) => (
             <IndoorList list={list} key={list._id}></IndoorList>
           ))}
         </div>
-        <div className="mt-1 mb-4 d-flex justify-content-end">
-          <button
-            className="opponant-find-btn pt-2 pb-2 ps-5 pe-5 w-100"
-            onClick={viewAllIndoor}
-          >
-            View All Indoor
-          </button>
-        </div>
-      </div>
+      </div> */}
       {/* Ranking */}
       <div className=" row opponant-find p-5">
         <div className="col-lg-5">

@@ -13,8 +13,8 @@ const RegisterForRanking = () => {
 
   const EntryNameForRanking = (e) => {
     e.preventDefault();
-    console.log("hii");
-    fetch("http://localhost:5000/ranking")
+
+    fetch("https://efutsal.onrender.com/ranking")
       .then((res) => res.json())
       .then((data) => {
         const filterData = data.data.filter(
@@ -31,7 +31,7 @@ const RegisterForRanking = () => {
             totalMatch: 0,
           };
 
-          fetch(`http://localhost:5000/ranking`, {
+          fetch(`https://efutsal.onrender.com/ranking`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -56,7 +56,7 @@ const RegisterForRanking = () => {
   };
 
   return (
-    <div>
+    <div className="register_name_parent">
       <h5 className="text-success text-center">{successResult}</h5>
       <h5 className="text-danger text-center">{FailResult}</h5>
 

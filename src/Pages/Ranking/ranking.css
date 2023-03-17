@@ -96,3 +96,9 @@
     width: 0%;
   }
 }
+.select_indoor_parent {
+  min-height: 60vh;
+}
+.register_name_parent {
+  min-height: 60vh;
+}

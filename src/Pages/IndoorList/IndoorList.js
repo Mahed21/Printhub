@@ -23,19 +23,12 @@ const IndoorList = (props) => {
   };
 
   return (
-    <div>
-      <div className="mb-5 booking-card-info ps-2 pe-2 pb-3 pt-2">
-        {/* <div className="card mb-3  card_design">
-        <div className="row g-0">
-          <div className="col-md-4">
-            <img
-              src={image}
-              className="img-fluid rounded-start h-100 w-100"
-              alt="..."
-            />
-          </div>
-          <div className="col-md-8">
-            <div className="card-body">
+    <div class="col-lg-4">
+      <div class="card">
+        <img src={image} class=" image" alt="..." />
+        <div class="card-body">
+          <div className="mt-3">
+            <div>
               <h5 className="card-title">{indoorName}</h5>
               <h5 className="card-title">Location: {address}</h5>
               <div className="mt-2 mb-2 datepicker">
@@ -49,16 +42,20 @@ const IndoorList = (props) => {
                   onChange={handleDate}
                 ></DatePicker>
               </div>
-              <button
-                onClick={() => moveBookingDetails(indoorName)}
-                className="btn btn-primary mt-1"
-              >
-                Check Availability
-              </button>
+              <div className="d-flex align-items-end">
+                <button
+                  onClick={() => moveBookingDetails(indoorName)}
+                  className="indoorlist-btn mt-1 p-2 w-100"
+                >
+                  Check Availability
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
+      {/* <div className="mb-5 booking-card-info ps-2 pe-2 pb-3 pt-2">
+  
 
         <div>
           <img
@@ -92,7 +89,7 @@ const IndoorList = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

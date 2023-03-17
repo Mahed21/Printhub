@@ -134,7 +134,7 @@ const Header = () => {
                   ) : (
                     ""
                   )}
-                  {user.emailVerified ? (
+                  {user.email ? (
                     <div>
                       <li className="nav-item">
                         <NavLink
@@ -150,7 +150,7 @@ const Header = () => {
                     ""
                   )}
 
-                  {user.emailVerified ? (
+                  {user.email ? (
                     ""
                   ) : (
                     <div>
@@ -166,7 +166,7 @@ const Header = () => {
                     </div>
                   )}
                   <div>
-                    {user.emailVerified ? (
+                    {user.email ? (
                       <li class="dropdown me-3 mt-2">
                         <li>Dashboard</li>
                         <div class="dropdown-content">
@@ -235,162 +235,169 @@ const Header = () => {
         </div>
       </div> */}
 
-      <nav class="navbar navbar-expand-md navbar-light fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            eFutsal
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarNav"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link active ankor me-2"
-                  aria-current="page"
-                  to="/"
-                >
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link active ankor me-2"
-                  aria-current="page"
-                  to="#"
-                >
-                  Contact
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  className="nav-link active ankor me-2"
-                  aria-current="page"
-                  to="/indoorAdd"
-                >
-                  Add Indoor
-                </NavLink>
-              </li>
-              {admin ? (
-                <li class="dropdown me-3 mt-2">
-                  <li>Admin Dashboard</li>
-                  <div class="dropdown-content">
-                    <Nav.Link to="/requestedIndoor">Manage Indoor</Nav.Link>
-                    <Nav.Link to="/aprovedTeamRequest">Team Request</Nav.Link>
-                  </div>
-                </li>
-              ) : (
-                ""
-              )}
-              {user.emailVerified ? (
-                <div>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link active ankor me-2"
-                      aria-current="page"
-                      to="/oponant"
-                    >
-                      Find Oponant
-                    </NavLink>
-                  </li>
-                </div>
-              ) : (
-                ""
-              )}
+      <div>
+        <nav class="navbar navbar-expand-md navbar-light fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+              <h4 className="efutsal_text ms-5">eFutsal</h4>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarNav"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-              {user.emailVerified ? (
-                ""
-              ) : (
-                <div>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link active ankor me-2"
-                      aria-current="page"
-                      to="/register"
-                    >
-                      Register
-                    </NavLink>
-                  </li>
-                </div>
-              )}
-              <div>
-                {user.emailVerified ? (
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link active ankor me-2"
+                    aria-current="page"
+                    to="/"
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link active ankor me-2"
+                    aria-current="page"
+                    to="#"
+                  >
+                    Contact
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link active ankor me-2"
+                    aria-current="page"
+                    to="/indoorAdd"
+                  >
+                    Add Indoor
+                  </NavLink>
+                </li>
+                {admin ? (
                   <li class="dropdown me-3 mt-2">
-                    <li>Dashboard</li>
+                    <li>Admin Dashboard</li>
                     <div class="dropdown-content">
-                      <Nav.Link href="/manageOponant">Manage Oponant</Nav.Link>
-                      {adminIndoor ? (
-                        <Nav.Link href="/tournament">
-                          Create Tournament
-                        </Nav.Link>
-                      ) : (
-                        ""
-                      )}
-                      {manageTournament ? (
-                        <Nav.Link href="/manageTournament">
-                          Manage Tournament
-                        </Nav.Link>
-                      ) : (
-                        ""
-                      )}
-                      {adminIndoor ? (
-                        <Nav.Link href="/teamList">Team List</Nav.Link>
-                      ) : (
-                        ""
-                      )}
-                      {adminIndoor ? (
-                        <Nav.Link href="/updatePlayerInfoForRanking">
-                          Update Player Score
-                        </Nav.Link>
-                      ) : (
-                        ""
-                      )}
+                      <Nav.Link href="/requestedIndoor">Manage Indoor</Nav.Link>
+                      <Nav.Link href="/aprovedTeamRequest">
+                        Team Request
+                      </Nav.Link>
                     </div>
                   </li>
                 ) : (
                   ""
                 )}
-              </div>
-              {user.email ? (
-                <div>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link active ankor me-2"
-                      aria-current="page"
-                      to="/login"
-                    >
-                      <button
-                        className="header-btn  me-2 ps-3 pe-3"
-                        onClick={Logout}
+                {user.email ? (
+                  <div>
+                    <li className="nav-item">
+                      <NavLink
+                        className="nav-link active ankor me-2"
+                        aria-current="page"
+                        to="/oponant"
                       >
-                        Logout
-                      </button>
-                    </NavLink>
-                  </li>
-                </div>
-              ) : (
+                        Find Oponant
+                      </NavLink>
+                    </li>
+                  </div>
+                ) : (
+                  ""
+                )}
+
+                {user.email ? (
+                  ""
+                ) : (
+                  <div>
+                    <li className="nav-item">
+                      <NavLink
+                        className="nav-link active ankor me-2"
+                        aria-current="page"
+                        to="/register"
+                      >
+                        Register
+                      </NavLink>
+                    </li>
+                  </div>
+                )}
                 <div>
-                  <li className="nav-item">
-                    <NavLink
-                      className="nav-link active ankor me-2"
-                      aria-current="page"
-                      to="/login"
-                    >
-                      Login
-                    </NavLink>
-                  </li>
+                  {user.email ? (
+                    <li class="dropdown me-3 mt-2">
+                      <li>Dashboard</li>
+                      <div class="dropdown-content">
+                        <Nav.Link href="/manageOponant">
+                          Manage Oponant
+                        </Nav.Link>
+                        {adminIndoor ? (
+                          <Nav.Link href="/tournament">
+                            Create Tournament
+                          </Nav.Link>
+                        ) : (
+                          ""
+                        )}
+                        {manageTournament ? (
+                          <Nav.Link href="/manageTournament">
+                            Manage Tournament
+                          </Nav.Link>
+                        ) : (
+                          ""
+                        )}
+                        {adminIndoor ? (
+                          <Nav.Link href="/teamList">Team List</Nav.Link>
+                        ) : (
+                          ""
+                        )}
+                        {adminIndoor ? (
+                          <Nav.Link href="/updatePlayerInfoForRanking">
+                            Update Player Score
+                          </Nav.Link>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </li>
+                  ) : (
+                    ""
+                  )}
                 </div>
-              )}
-            </ul>
+                {user.email ? (
+                  <div>
+                    <li className="nav-item">
+                      <NavLink
+                        className="nav-link active ankor me-2"
+                        aria-current="page"
+                        to="/login"
+                      >
+                        <button
+                          className="header-btn  me-2 ps-3 pe-3"
+                          onClick={Logout}
+                        >
+                          Logout
+                        </button>
+                      </NavLink>
+                    </li>
+                  </div>
+                ) : (
+                  <div>
+                    <li className="nav-item">
+                      <NavLink
+                        className="nav-link active ankor me-2"
+                        aria-current="page"
+                        to="/login"
+                      >
+                        Login
+                      </NavLink>
+                    </li>
+                  </div>
+                )}
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </div>
     </div>
   );
 };
