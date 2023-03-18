@@ -50,7 +50,7 @@ const Login = () => {
           <br />
           <div>
             <button className="login-btn pt-2 pb-2 mb-3" onClick={handleLogin}>
-              Sign In Button
+              Login
             </button>
           </div>
           <div className="">

@@ -92,7 +92,7 @@ const Footer = () => {
           <p>
             Copyright{" "}
             <FontAwesomeIcon icon={faCopyright} className="icon mt-1" /> 2022
-            printup
+            eFutsal
           </p>
         </div>
       </div>

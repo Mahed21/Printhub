@@ -13,7 +13,7 @@ const IndoorList = (props) => {
     setDate(moment(e._d).format("MMM Do YY"));
   };
   const moveBookingDetails = (venue) => {
-    if (!user.emailVerified) {
+    if (!user.email) {
       navigate("/login");
     } else if (!date) {
       alert("select date");
@@ -23,7 +23,7 @@ const IndoorList = (props) => {
   };
 
   return (
-    <div class="col-lg-4">
+    <div class="col-lg-4 mt-4">
       <div class="card">
         <img src={image} class=" image" alt="..." />
         <div class="card-body">

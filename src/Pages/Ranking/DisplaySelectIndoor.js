@@ -8,7 +8,7 @@ const DisplaySelectIndoor = (props) => {
   const navigate = useNavigate();
   const { indoorName, address, status } = props.list;
   const RegisterForRanking = (indoor) => {
-    if (!user.emailVerified) {
+    if (!user.email) {
       navigate("/login");
     } else {
       navigate("/registerForRanking", { state: { indoorName: indoor } });

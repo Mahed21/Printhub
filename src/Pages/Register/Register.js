@@ -68,7 +68,7 @@ const Register = () => {
 
           <div>
             <button className="login-btn pt-2 pb-2" onClick={handleRegister}>
-              Sign In Button
+              Sign In
             </button>
           </div>
           <div className="d-flex justify-content-center">

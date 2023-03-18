@@ -217,7 +217,7 @@ const Home = () => {
       </div>
 
       {/* all indoors */}
-      <div class="container">
+      <div class="">
         <div class="row">
           {indoorList.map((list) => (
             <IndoorList list={list} key={list._id}></IndoorList>
@@ -233,7 +233,7 @@ const Home = () => {
         </div>
       </div> */}
       {/* Ranking */}
-      <div className=" row opponant-find p-5">
+      <div className=" row opponant-find p-5 mt-5">
         <div className="col-lg-5">
           <div className="d-flex justify-content-center">
             <img src={challangeBanner} alt="" className="img-fluid" />
@@ -244,7 +244,7 @@ const Home = () => {
             className="
         "
           >
-            <div>
+            <div className="">
               <div className="oponant-find-text me-5">
                 <h3>Register Your Name For Ranking!</h3>
                 <h5 className="mb-1">

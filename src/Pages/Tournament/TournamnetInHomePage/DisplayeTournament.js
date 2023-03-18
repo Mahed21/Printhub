@@ -141,7 +141,7 @@ const DisplayeTournament = (props) => {
     doc.text(`3: ${tournamentRulesThree}`, 10, 50);
     doc.text(`4: ${tournamentRulesFour}`, 10, 60);
     doc.text(`5: ${tournamentRulesFive}`, 10, 70);
-    doc.save("eFutsalRoles.pdf");
+    doc.save("eFutsalRules.pdf");
   };
 
   const ViewAllTeam = (email) => {
